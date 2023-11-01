@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="InvalidFile" xml:space="preserve">
+        <value>File is invalid</value>
+        <comment/>
+    </data>
+    <data name="NoExcelSheetAvailable" xml:space="preserve">
+        <value>No sheet is available with name: </value>
+        <comment/>
+    </data>
+    <data name="EmailValidation" xml:space="preserve">
+        <value>Email Address is invalid.</value>
+    </data>
+    <data name="UserExists" xml:space="preserve">
+        <value>User Already Exists.</value>
+    </data>
+    <data name="FirstNameValidation" xml:space="preserve">
+        <value>FirstName cannot be null or empty and should only contain alphabetic characters.</value>
+    </data>
+    <data name="LastNameValidation" xml:space="preserve">
+        <value>LastName cannot be null or empty and should only contain alphabetic characters.</value>
+    </data>
+    <data name="RoleValidation" xml:space="preserve">
+        <value>Role cannot be null.</value>
+    </data>
+    <data name="LanguageNotSelected" xml:space="preserve">
+        <value>Preferred language not selected.</value>
+    </data>
+    <data name="UserNotFound" xml:space="preserve">
+        <value>User not found.</value>
+    </data>
+    <data name="InvalidCountryId" xml:space="preserve">
+        <value>Country Id is invalid.</value>
+    </data>
+    <data name="StartDateValidation" xml:space="preserve">
+        <value>Start Date should be less than End Date.</value>
+    </data>
+    <data name="EndDateValidation" xml:space="preserve">
+        <value>End Date should be greater than Start Date.</value>
+    </data>
+    <data name="NotValidDateDiffStrategicPlan" xml:space="preserve">
+        <value>Diffrence between date should be 5 years.</value>
+    </data>
+    <data name="LimitStrategicPlanExisted" xml:space="preserve">
+        <value>Strategic plan already exist. Can not create new plan</value>
+    </data>
+    <data name="ValidStrategicPlanDate" xml:space="preserve">
+        <value>You can not create a Strategic Plan for these dates. Please create a new plan after the dates</value>
+    </data>
+    <data name="CantPerformOperation" xml:space="preserve">
+        <value>You dont have access to perform this operation.</value>
+    </data>
+    <data name="InvalidValue" xml:space="preserve">
+        <value>Invalid Value</value>
+    </data>
+    <data name="UserIdValidation" xml:space="preserve">
+        <value>User Id cannot be null or zero.</value>
+    </data>
+    <data name="InvalidIndicatorId" xml:space="preserve">
+        <value>IndicatorId is invalid.</value>
+    </data>
+    <data name="InvalidBenchMark" xml:space="preserve">
+        <value>Benchmark is invalid.</value>
+    </data>
+    <data name="InvalidObjective" xml:space="preserve">
+        <value>Objective is invalid.</value>
+    </data>
+    <data name="InvalidCapacity" xml:space="preserve">
+        <value>Capacity is invalid.</value>
+    </data>
+    <data name="InvalidPreviousScore" xml:space="preserve">
+        <value>Invalid Previous score.</value>
+    </data>
+    <data name="InvalidTargetScore" xml:space="preserve">
+        <value>Invalid Target score.</value>
+    </data>
+    <data name="InvalidActions" xml:space="preserve">
+        <value>Invalid actions.</value>
+    </data>
+    <data name="InvalidPlanId" xml:space="preserve">
+        <value>Plan Id is invalid.</value>
+    </data>
+    <data name="InvalidSource" xml:space="preserve">
+        <value>Source is invalid.</value>
+    </data>
+    <data name="InvalidSetOfIndicator" xml:space="preserve">
+        <value>Invalid set of indicator.</value>
+    </data>
+    <data name="InvalidGroupingInRoadMap" xml:space="preserve">
+        <value>Invalid grouping in RoadMap.</value>
+    </data>
+    <data name="InvalidTechnicalArea" xml:space="preserve">
+        <value>Invalid Technical Area.</value>
+    </data>
+    <data name="InvalidIndicatorCode" xml:space="preserve">
+        <value>Invalid indicator code.</value>
+    </data>
+    <data name="InvalidIndicatorName" xml:space="preserve">
+        <value>Invalid Indicator Name.</value>
+    </data>
+    <data name="InvalidDetailedActivity" xml:space="preserve">
+        <value>Invalid Detailed Activity.</value>
+    </data>
+    <data name="InvalidFeasibility" xml:space="preserve">
+        <value>Invalid Feasibility.</value>
+    </data>
+    <data name="InvalidImpact" xml:space="preserve">
+        <value>Invalid Impact.</value>
+    </data>
+    <data name="InvalidExcelType" xml:space="preserve">
+        <value>Excel type is invalid.</value>
+    </data>
+    <data name="CountryIdValidation" xml:space="preserve">
+        <value>Country Id is invalid.</value>
+    </data>
+    <data name="InvalidSheetName" xml:space="preserve">
+        <value>Sheet name is invalid.</value>
+    </data>
+    <data name="InvalidJEERecommendation" xml:space="preserve">
+        <value>Invalid JEE Recommendation.</value>
+    </data>
+    <data name="InvalidAreaCode" xml:space="preserve">
+        <value>Area code is invalid.</value>
+    </data>
+    <data name="InvalidScore" xml:space="preserve">
+        <value>Score is invalid.</value>
+    </data>
+    <data name="InvalidGoal" xml:space="preserve">
+        <value>Goal is invalid.</value>
+    </data>
+    <data name="InvalidTechnicalAreaId" xml:space="preserve">
+        <value>Invalid technical area id.</value>
+    </data>
+    <data name="NotValidDateDiffOperationalPlan" xml:space="preserve">
+        <value>Difference between date should be between 1 and 2 years.</value>
+    </data>
+    <data name="OPStartDateGreaterThanSPStartDate" xml:space="preserve">
+        <value>Operational plan's start date should be greater than or equal to the strategic plan's start date.</value>
+    </data>
+    <data name="OPEndDateLessThanSPEndDate" xml:space="preserve">
+        <value>Operational plan's end date should be less than or equal to the strategic plan's end date.</value>
+    </data>
+    <data name="OPAlreadyExists" xml:space="preserve">
+        <value>Operational plan between this date range already exists.</value>
+    </data>
+    <data name="SomethingWentWrong" xml:space="preserve">
+        <value>Something went wrong.</value>
+    </data>
+    <data name="InvalidStrategicActionId" xml:space="preserve">
+        <value>Invalid Strategic Action Id.</value>
+    </data>
+    <data name="StrategicActionNotFound" xml:space="preserve">
+        <value>Strategic Action Not Found.</value>
+    </data>
+    <data name="StrategicActionObjectiveNull" xml:space="preserve">
+        <value>StrategicAction's Objective Can Not Be Null.</value>
+    </data>
+    <data name="StrategicActionFeasibilityNull" xml:space="preserve">
+        <value>StrategicAction's Feasibility Can Not Be Null.</value>
+    </data>
+    <data name="StrategicActionImpactNull" xml:space="preserve">
+        <value>StrategicAction's Impact Can Not Be Null.</value>
+    </data>
+    <data name="InvalidStrategicActionSource" xml:space="preserve">
+        <value>Invalid Strategic Action Source.</value>
+    </data>
+    <data name="ResponsibleAuthorityMaxLength" xml:space="preserve">
+        <value>Responsible Authority Max Length exceeded.</value>
+    </data>
+    <data name="EstimatedCostNull" xml:space="preserve">
+        <value>Estimated Cost Cant be Null</value>
+    </data>
+    <data name="NameValidation" xml:space="preserve">
+        <value>Name cannot be null or empty.</value>
+    </data>
+    <data name="AssessmentTypeValidation" xml:space="preserve">
+        <value>Invalid AssessmentType.</value>
+    </data>
+    <data name="ActivityValidation" xml:space="preserve">
+        <value>Invalid Activity.</value>
+    </data>
+    <data name="ActivityAlreadyExists" xml:space="preserve">
+        <value>Detailed Activity Type with this name already exists. </value>
+    </data>
+    <data name="PriorityValidation" xml:space="preserve">
+        <value>Invalid Priority.</value>
+    </data>
+    <data name="DetailedActivityNotFound" xml:space="preserve">
+        <value>Detailed Activity Not Found.</value>
+    </data>
+    <data name="InvalidIHRActionId" xml:space="preserve">
+        <value>Invalid IHR Actions Id.</value>
+    </data>
+    <data name="InvalidPlanIndicatorId" xml:space="preserve">
+        <value>Invalid plan indicator id.</value>
+    </data>
+    <data name="InvalidFileTypeForExcel" xml:space="preserve">
+        <value>Invalid file type. Please upload excel file.</value>
+    </data>
+    <data name="InvalidPlanningToolId" xml:space="preserve">
+        <value>Invalid planning tool id.</value>
+    </data>
+    <data name="NoFileFound" xml:space="preserve">
+        <value>No file found.</value>
+    </data>
+    <data name="UserCantBeNull" xml:space="preserve">
+        <value>User Cant be null.</value>
+    </data>
+    <data name="InvalidImage" xml:space="preserve">
+        <value>Invalid image.</value>
+    </data>
+    <data name="CannotProcessRequest" xml:space="preserve">
+        <value>Your request cannot be processed. Something wrong. Please contact support person.</value>
+    </data>
+    <data name="WentWrongWhileFetchingToken" xml:space="preserve">
+        <value>Something went wrong while fetching the auth token.</value>
+    </data>
+    <data name="InvalidToken" xml:space="preserve">
+        <value>Invalid auth token.</value>
+    </data>
+    <data name="WentWrongWhileFetchingRecommendations" xml:space="preserve">
+        <value>Something went wrong while fetching the recommendations.</value>
+    </data>
+    <data name="WentWrongWhileFetchingScore" xml:space="preserve">
+        <value>Something went wrong while fetching the score.</value>
+    </data>
+    <data name="NoProfileFound" xml:space="preserve">
+        <value>No Profile Found.</value>
+    </data>
+    <data name="UnauthorizedAccess" xml:space="preserve">
+        <value>Unauthorized Access</value>
+    </data>
+    <data name="WhoEmailDomainValidation" xml:space="preserve">
+        <value>Only user having who domain account can be system admin or regional admin.</value>
+    </data>
+    <data name="ReviewsMonthsValidation" xml:space="preserve">
+        <value>Months should be greater than 0 for reviews.</value>
+    </data>
+</root>

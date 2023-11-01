@@ -1,0 +1,4 @@
+CREATE TABLE [dbo].[AjayTest]
+(
+  [Id] INT NOT NULL PRIMARY KEY
+)

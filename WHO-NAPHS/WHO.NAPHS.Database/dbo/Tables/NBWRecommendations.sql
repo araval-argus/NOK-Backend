@@ -1,0 +1,32 @@
+--Table to store NBW recommended actions.
+CREATE TABLE [dbo].[NBWRecommendations]
+(
+    [NBWRecommendationId] INT NOT NULL IDENTITY(1,1),
+    [Source] NVARCHAR (MAX) NOT NULL,
+    [SetOfIndicator] NVARCHAR (MAX) NOT NULL,
+    [GroupingInRoadMap] NVARCHAR (MAX) NOT NULL,
+    [TechnicalArea] NVARCHAR (MAX) NOT NULL,
+    [IndicatorId] NVARCHAR (10) NOT NULL,
+    [IndicatorCode] NVARCHAR (10) NOT NULL,
+    [IndicatorName] NVARCHAR (MAX) NOT NULL,
+    [Objective] NVARCHAR (MAX) NOT NULL,
+    [StrategicAction] NVARCHAR (MAX) NOT NULL,
+    [DetailedActivity] NVARCHAR (MAX) NOT NULL,
+    [Feasibility] INT NOT NULL,
+    [Impact] INT NOT NULL,
+    [StartDate] DATETIME2(7) NULL,
+    [EndDate] DATETIME2(7) NULL,
+    [ResponsibleAuthority] NVARCHAR (MAX) NULL,
+    [CountryId] INT NULL,
+    [CountryPlanId] INT NULL,
+    [PlanningToolId] INT NULL,
+    [Tags] NVARCHAR (100) NULL,
+    [CreatedAt] DATETIME2(7) NULL,
+    [CreatedBy] INT NOT NULL,
+    [LastUpdatedAt] DATETIME2(7) NOT NULL,
+    [LastUpdatedBy] INT NOT NULL,
+    CONSTRAINT [PK_NBWRecommendationId] PRIMARY KEY CLUSTERED ([NBWRecommendationId] ASC),
+    CONSTRAINT [FK_NBWRecommendations_Countries] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Countries]([CountryId]),
+    CONSTRAINT [FK_NBWRecommendations_CountryPlans] FOREIGN KEY ([CountryPlanId]) REFERENCES [dbo].[CountryPlans]([CountryPlanId]),
+    CONSTRAINT [FK_NBWRecommendations_PlanningTools] FOREIGN KEY ([PlanningToolId]) REFERENCES [dbo].[PlanningTools]([PlanningToolId])
+);
