@@ -4,21 +4,21 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Controllers
+namespace WHO.NOK.API.Controllers
 {
     using FluentValidation;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.API.Helper;
-    using WHO.NAPHS.BusinessLogic.Features.Excel;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Excel;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.ResponseMiddleware;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.API.Helper;
+    using WHO.NOK.BusinessLogic.Features.Excel;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.Excel;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.ResponseMiddleware;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Excel controller to perform the excel related operations.

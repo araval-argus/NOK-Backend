@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Data;
     using System.Threading.Tasks;
@@ -12,15 +12,15 @@ namespace WHO.NAPHS.Infrastructure.ServiceImplementation
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.Features.DetailedActivity;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.DetailedActivity;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Infrastructure.Helper;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
-    using WHO.NAPHS.Infrastructure.Models.Plans;
+    using WHO.NOK.BusinessLogic.Features.DetailedActivity;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.DetailedActivity;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Infrastructure.Helper;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Infrastructure.Models.Plans;
 
     /// <summary>
     /// Implement the <see cref="IDetailedActivityService"/>.

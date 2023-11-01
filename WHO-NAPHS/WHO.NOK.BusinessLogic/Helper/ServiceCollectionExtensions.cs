@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Helper
+namespace WHO.NOK.BusinessLogic.Helper
 {
     using System.Globalization;
     using System.Reflection;
@@ -13,7 +13,7 @@ namespace WHO.NAPHS.BusinessLogic.Helper
     using Microsoft.AspNetCore.Localization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.DependencyInjection;
-    using WHO.NAPHS.BusinessLogic.ViewModels.User;
+    using WHO.NOK.BusinessLogic.ViewModels.User;
 
     /// <summary>
     /// Extension methods for the <see cref="IServiceCollection"/> class.

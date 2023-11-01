@@ -7,7 +7,7 @@
 // to suppress constructor error.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.Core.Wrappers
+namespace WHO.NOK.Core.Wrappers
 {
     /// <summary>
     /// Api exception response model.

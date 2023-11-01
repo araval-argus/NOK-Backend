@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Helper
+namespace WHO.NOK.API.Helper
 {
     /// <summary>
     /// Graph claims types.

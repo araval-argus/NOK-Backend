@@ -2,15 +2,15 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace WHO.NAPHS.API.Tests.Features.Profile
+namespace WHO.NOK.API.Tests.Features.Profile
 {
     using FluentValidation.TestHelper;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.API.Test.Fixture;
-    using WHO.NAPHS.BusinessLogic.Features.User;
-    using WHO.NAPHS.BusinessLogic.Features.User.Validators;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.API.Test.Fixture;
+    using WHO.NOK.BusinessLogic.Features.User;
+    using WHO.NOK.BusinessLogic.Features.User.Validators;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.Core.Common.Resources;
     using Xunit;
 
     /// <summary>

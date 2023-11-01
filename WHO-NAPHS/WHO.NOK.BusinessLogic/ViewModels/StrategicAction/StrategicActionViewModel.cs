@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.StrategicAction
+namespace WHO.NOK.BusinessLogic.ViewModels.StrategicAction
 {
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Strategic action view model for strategic plan.

@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Core.ResponseMiddleware
+namespace WHO.NOK.Core.ResponseMiddleware
 {
     using System.Net;
     using System.Net.Mime;

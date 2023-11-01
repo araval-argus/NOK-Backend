@@ -7,17 +7,17 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8604, CS8602, CS8600, CS8603
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Net.Http.Headers;
     using Microsoft.Extensions.Localization;
     using Newtonsoft.Json;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Assessments;
-    using WHO.NAPHS.BusinessLogic.ViewModels.ClaimsRequest;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Constant;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.Assessments;
+    using WHO.NOK.BusinessLogic.ViewModels.ClaimsRequest;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Constant;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Implement <see cref="IAssessmentImportService"/> interface.

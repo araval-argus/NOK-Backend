@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.StrategicAction
+namespace WHO.NOK.BusinessLogic.Features.StrategicAction
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
-    using WHO.NAPHS.BusinessLogic.ViewModels.StrategicAction;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.BusinessLogic.ViewModels.StrategicAction;
 
     /// <summary>
     /// Add JEE recommendation command.

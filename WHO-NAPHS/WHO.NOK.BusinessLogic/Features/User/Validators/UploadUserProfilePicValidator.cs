@@ -4,13 +4,13 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.User.Validators
+namespace WHO.NOK.BusinessLogic.Features.User.Validators
 {
     using System.Collections.Immutable;
     using FluentValidation;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.Core.Common.Resources;
 
     /// <summary>
     /// Fluent validator for <see cref="UploadUserProfilePicValidator"/>.

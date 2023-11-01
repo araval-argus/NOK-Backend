@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan
+namespace WHO.NOK.BusinessLogic.ViewModels.CountryPlan
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.StrategicAction;
+    using WHO.NOK.BusinessLogic.ViewModels.StrategicAction;
 
     /// <summary>
     /// Technical area indicator view model.

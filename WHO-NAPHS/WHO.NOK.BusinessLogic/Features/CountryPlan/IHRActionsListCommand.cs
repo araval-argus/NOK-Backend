@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.CountryPlan
+namespace WHO.NOK.BusinessLogic.Features.CountryPlan
 {
     /// <summary>
     /// Command to add IHR Actions list to plan.

@@ -7,10 +7,10 @@
 // to suppress constructor error.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.Infrastructure.Models.Excel
+namespace WHO.NOK.Infrastructure.Models.Excel
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Excel mapping DB Model.

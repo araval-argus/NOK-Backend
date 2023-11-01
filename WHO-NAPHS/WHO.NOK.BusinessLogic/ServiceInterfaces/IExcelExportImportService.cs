@@ -4,13 +4,13 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using WHO.NAPHS.BusinessLogic.Features.Excel;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Excel;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.BusinessLogic.Features.Excel;
+    using WHO.NOK.BusinessLogic.ViewModels.Excel;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Excel export and import service.

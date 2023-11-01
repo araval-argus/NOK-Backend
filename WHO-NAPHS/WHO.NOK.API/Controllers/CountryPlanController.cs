@@ -4,22 +4,22 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Controllers
+namespace WHO.NOK.API.Controllers
 {
     using FluentValidation;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using WHO.NAPHS.API.Helper;
-    using WHO.NAPHS.BusinessLogic.Features.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.Features.StrategicAction;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Assessments;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.ResponseMiddleware;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.API.Helper;
+    using WHO.NOK.BusinessLogic.Features.CountryPlan;
+    using WHO.NOK.BusinessLogic.Features.StrategicAction;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.Assessments;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.ResponseMiddleware;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Controller to add the Country Plans.

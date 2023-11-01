@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Plans
+namespace WHO.NOK.Infrastructure.Models.Plans
 {
     using System.ComponentModel.DataAnnotations;
 

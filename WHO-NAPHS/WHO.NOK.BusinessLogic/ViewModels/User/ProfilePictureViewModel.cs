@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.User
+namespace WHO.NOK.BusinessLogic.ViewModels.User
 {
     /// <summary>
     /// Profile picture response view model.

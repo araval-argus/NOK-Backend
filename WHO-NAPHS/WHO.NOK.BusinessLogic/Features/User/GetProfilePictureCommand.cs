@@ -7,9 +7,9 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.BusinessLogic.Features.User
+namespace WHO.NOK.BusinessLogic.Features.User
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
 
     /// <summary>
     /// Command to get user profile picture.

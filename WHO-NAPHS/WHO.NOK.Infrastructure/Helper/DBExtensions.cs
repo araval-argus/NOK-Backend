@@ -7,13 +7,13 @@
 // to suppress space warning.
 #pragma warning disable SA1011
 
-namespace WHO.NAPHS.Infrastructure.Helper
+namespace WHO.NOK.Infrastructure.Helper
 {
     using System.Data;
     using System.Data.Common;
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// Db Extensions.

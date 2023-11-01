@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.CountryPlan
+namespace WHO.NOK.BusinessLogic.Features.CountryPlan
 {
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
 
     /// <summary>
     /// Command to get actions that requires financial/technical assistance.

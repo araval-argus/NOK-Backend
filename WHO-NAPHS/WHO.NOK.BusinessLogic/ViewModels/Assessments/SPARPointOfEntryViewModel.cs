@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Assessments
+namespace WHO.NOK.BusinessLogic.ViewModels.Assessments
 {
     /// <summary>
     /// View model for point of entries.

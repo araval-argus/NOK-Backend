@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan
+namespace WHO.NOK.BusinessLogic.ViewModels.CountryPlan
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.Country;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.Country;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
 
     /// <summary>
     /// View model to show dashboard.

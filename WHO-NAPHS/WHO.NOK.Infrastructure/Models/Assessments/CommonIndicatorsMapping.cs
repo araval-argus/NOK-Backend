@@ -7,10 +7,10 @@
 // to suppress constructor error.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.Infrastructure.Models.Assessments
+namespace WHO.NOK.Infrastructure.Models.Assessments
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Common Indicator mapping DB model.

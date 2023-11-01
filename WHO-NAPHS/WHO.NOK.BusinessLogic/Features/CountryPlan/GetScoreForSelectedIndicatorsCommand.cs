@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.CountryPlan
+namespace WHO.NOK.BusinessLogic.Features.CountryPlan
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Get score details for selected indicators while plan creation.

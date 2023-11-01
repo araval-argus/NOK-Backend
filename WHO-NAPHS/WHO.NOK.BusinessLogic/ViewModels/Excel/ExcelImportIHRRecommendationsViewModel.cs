@@ -6,7 +6,7 @@
 
 #nullable disable
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Excel
+namespace WHO.NOK.BusinessLogic.ViewModels.Excel
 {
     /// <summary>
     /// Excel import view model.

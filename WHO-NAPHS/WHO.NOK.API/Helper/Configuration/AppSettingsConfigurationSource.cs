@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Helper.Configuration
+namespace WHO.NOK.API.Helper.Configuration
 {
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// Configuration source class for AppSettings.

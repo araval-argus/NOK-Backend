@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Excel
+namespace WHO.NOK.BusinessLogic.ViewModels.Excel
 {
     using Microsoft.AspNetCore.Http;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Import excel file view model.

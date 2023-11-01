@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Assessments
+namespace WHO.NOK.Infrastructure.Models.Assessments
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Technical Indicator DB Model.

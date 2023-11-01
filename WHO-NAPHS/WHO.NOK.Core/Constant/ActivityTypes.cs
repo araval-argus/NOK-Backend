@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Core.Common
+namespace WHO.NOK.Core.Common
 {
     /// <summary>
     /// Types of activities for checking the user is authorized to perform it or not.

@@ -7,11 +7,11 @@
 // to suppress constructor error.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.Infrastructure.Models.Plans
+namespace WHO.NOK.Infrastructure.Models.Plans
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
-    using Common = WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
+    using Common = WHO.NOK.Core.Common;
 
     /// <summary>
     /// Country Plan DB Model.

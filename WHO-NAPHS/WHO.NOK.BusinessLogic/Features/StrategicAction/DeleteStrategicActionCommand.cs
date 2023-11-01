@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.StrategicAction
+namespace WHO.NOK.BusinessLogic.Features.StrategicAction
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
 
     /// <summary>
     /// Command to create custom strategic action for strategic or operation plans.

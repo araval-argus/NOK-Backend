@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels
+namespace WHO.NOK.BusinessLogic.ViewModels
 {
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// View model for role.

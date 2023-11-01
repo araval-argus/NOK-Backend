@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8604, CS8600
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Data;
     using System.Text;
@@ -15,15 +15,15 @@ namespace WHO.NAPHS.Infrastructure.ServiceImplementation
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.StrategicAction;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Wrappers;
-    using WHO.NAPHS.Infrastructure.Helper;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.StrategicAction;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Wrappers;
+    using WHO.NOK.Infrastructure.Helper;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// Implement <see cref="ICommonService"/> interface.

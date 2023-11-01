@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Excel
+namespace WHO.NOK.BusinessLogic.ViewModels.Excel
 {
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// NBW Recommendations ViewModel.

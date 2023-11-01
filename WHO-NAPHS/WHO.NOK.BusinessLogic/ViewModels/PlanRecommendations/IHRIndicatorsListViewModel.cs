@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.PlanRecommendations
+namespace WHO.NOK.BusinessLogic.ViewModels.PlanRecommendations
 {
     /// <summary>
     /// Area technical indicators view model.

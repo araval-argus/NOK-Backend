@@ -7,11 +7,11 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8602
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Security.Claims;
     using Microsoft.AspNetCore.Http;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
 
     /// <summary>
     /// Implement the <see cref="ICurrentUserService"/>.

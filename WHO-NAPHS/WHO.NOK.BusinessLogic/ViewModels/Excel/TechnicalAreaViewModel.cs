@@ -7,7 +7,7 @@
 // to suppress constructor error.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Excel
+namespace WHO.NOK.BusinessLogic.ViewModels.Excel
 {
     /// <summary>
     /// Technical area view model for assessment import process.

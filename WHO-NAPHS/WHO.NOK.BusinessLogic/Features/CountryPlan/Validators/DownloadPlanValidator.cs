@@ -4,13 +4,13 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.CountryPlan.Validators
+namespace WHO.NOK.BusinessLogic.Features.CountryPlan.Validators
 {
     using FluentValidation;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
 
     /// <summary>
     /// Fluent validation for <see cref="DownloadPlanCommand"/> command.

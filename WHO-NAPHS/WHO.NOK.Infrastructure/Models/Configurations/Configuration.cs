@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Configurations
+namespace WHO.NOK.Infrastructure.Models.Configurations
 {
     /// <summary>
     /// Configuration Model.

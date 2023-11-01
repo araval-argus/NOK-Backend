@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
-    using WHO.NAPHS.BusinessLogic.Features.DetailedActivity;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.DetailedActivity;
+    using WHO.NOK.BusinessLogic.Features.DetailedActivity;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.DetailedActivity;
 
     /// <summary>
     /// Detailed activity service interface.

@@ -4,16 +4,16 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Data;
     using System.Threading.Tasks;
     using Microsoft.Data.SqlClient;
-    using WHO.NAPHS.BusinessLogic.Features.PlanRecommendations;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PlanRecommendations;
-    using WHO.NAPHS.Infrastructure.Helper;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.BusinessLogic.Features.PlanRecommendations;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.PlanRecommendations;
+    using WHO.NOK.Infrastructure.Helper;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// Implement <see cref="IPlanRecommendationService"/> interface.

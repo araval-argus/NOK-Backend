@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features
+namespace WHO.NOK.BusinessLogic.Features
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Command to update strategic action.

@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8601, CS8618
 
-namespace WHO.NAPHS.Core.Wrappers
+namespace WHO.NOK.Core.Wrappers
 {
     using Newtonsoft.Json;
 

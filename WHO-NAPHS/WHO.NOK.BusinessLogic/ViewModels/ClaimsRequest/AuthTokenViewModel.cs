@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.ClaimsRequest
+namespace WHO.NOK.BusinessLogic.ViewModels.ClaimsRequest
 {
     using Newtonsoft.Json;
 

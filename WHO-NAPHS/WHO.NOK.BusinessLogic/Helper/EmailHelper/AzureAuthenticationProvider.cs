@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Helper.EmailHelper
+namespace WHO.NOK.BusinessLogic.Helper.EmailHelper
 {
     using Microsoft.Kiota.Abstractions;
     using Microsoft.Kiota.Abstractions.Authentication;

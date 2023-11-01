@@ -4,16 +4,16 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.CacheImplementation
+namespace WHO.NOK.Infrastructure.CacheImplementation
 {
     using System.Collections.Generic;
     using Microsoft.Extensions.Caching.Memory;
-    using WHO.NAPHS.BusinessLogic.CacheInterfaces;
-    using WHO.NAPHS.BusinessLogic.Features.User;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
-    using WHO.NAPHS.BusinessLogic.ViewModels.User;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.BusinessLogic.CacheInterfaces;
+    using WHO.NOK.BusinessLogic.Features.User;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.User;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
 
     /// <summary>
     /// Cache Implementation for UserService.

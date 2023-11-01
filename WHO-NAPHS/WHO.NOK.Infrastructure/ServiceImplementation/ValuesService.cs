@@ -4,18 +4,18 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using AutoMapper;
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Country;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Language;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Infrastructure.Helper;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels;
+    using WHO.NOK.BusinessLogic.ViewModels.Country;
+    using WHO.NOK.BusinessLogic.ViewModels.Language;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Infrastructure.Helper;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// Implements the <see cref="IValuesService"/> interface.

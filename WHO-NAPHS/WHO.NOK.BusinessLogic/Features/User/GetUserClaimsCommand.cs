@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.User
+namespace WHO.NOK.BusinessLogic.Features.User
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
 
     /// <summary>
     /// Get User claims Command class.

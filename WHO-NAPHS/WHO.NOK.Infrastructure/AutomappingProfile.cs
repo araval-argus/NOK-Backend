@@ -4,24 +4,24 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure
+namespace WHO.NOK.Infrastructure
 {
     using AutoMapper;
-    using WHO.NAPHS.BusinessLogic.ViewModels;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Country;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.DetailedActivity;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Excel;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Language;
-    using WHO.NAPHS.BusinessLogic.ViewModels.StrategicAction;
-    using WHO.NAPHS.BusinessLogic.ViewModels.User;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Infrastructure.Models.Assessments;
-    using WHO.NAPHS.Infrastructure.Models.Countries;
-    using WHO.NAPHS.Infrastructure.Models.Excel;
-    using WHO.NAPHS.Infrastructure.Models.Languages;
-    using WHO.NAPHS.Infrastructure.Models.Plans;
-    using WHO.NAPHS.Infrastructure.Models.Users;
+    using WHO.NOK.BusinessLogic.ViewModels;
+    using WHO.NOK.BusinessLogic.ViewModels.Country;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.DetailedActivity;
+    using WHO.NOK.BusinessLogic.ViewModels.Excel;
+    using WHO.NOK.BusinessLogic.ViewModels.Language;
+    using WHO.NOK.BusinessLogic.ViewModels.StrategicAction;
+    using WHO.NOK.BusinessLogic.ViewModels.User;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Infrastructure.Models.Assessments;
+    using WHO.NOK.Infrastructure.Models.Countries;
+    using WHO.NOK.Infrastructure.Models.Excel;
+    using WHO.NOK.Infrastructure.Models.Languages;
+    using WHO.NOK.Infrastructure.Models.Plans;
+    using WHO.NOK.Infrastructure.Models.Users;
 
     /// <summary>
     /// AutoMapper Profile Class.

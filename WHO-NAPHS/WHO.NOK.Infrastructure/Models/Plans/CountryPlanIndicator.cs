@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Plans
+namespace WHO.NOK.Infrastructure.Models.Plans
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Infrastructure.Models.Assessments;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Infrastructure.Models.Assessments;
 
     /// <summary>
     /// Plan indicator DB model.

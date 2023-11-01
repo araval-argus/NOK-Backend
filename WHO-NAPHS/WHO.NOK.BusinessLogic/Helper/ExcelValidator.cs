@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Helper
+namespace WHO.NOK.BusinessLogic.Helper
 {
     using DocumentFormat.OpenXml.Packaging;
     using Microsoft.AspNetCore.Http;

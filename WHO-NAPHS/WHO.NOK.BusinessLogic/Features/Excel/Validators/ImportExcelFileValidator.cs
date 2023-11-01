@@ -4,13 +4,13 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.Excel.Validators
+namespace WHO.NOK.BusinessLogic.Features.Excel.Validators
 {
     using FluentValidation;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Constant;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Constant;
 
     /// <summary>
     /// Fluent validator for <see cref="ImportExcelFileCommand"/>.

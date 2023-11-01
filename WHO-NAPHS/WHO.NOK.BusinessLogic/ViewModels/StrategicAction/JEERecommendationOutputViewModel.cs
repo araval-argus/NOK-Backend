@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.StrategicAction
+namespace WHO.NOK.BusinessLogic.ViewModels.StrategicAction
 {
     /// <summary>
     /// JEE recommendation output view model.

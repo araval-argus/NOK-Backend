@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Audit
+namespace WHO.NOK.Infrastructure.Models.Audit
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Audit strategic actions DB Model.

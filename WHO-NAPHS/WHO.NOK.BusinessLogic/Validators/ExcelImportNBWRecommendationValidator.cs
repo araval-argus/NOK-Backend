@@ -4,12 +4,12 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Validators
+namespace WHO.NOK.BusinessLogic.Validators
 {
     using FluentValidation;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Excel;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.BusinessLogic.ViewModels.Excel;
+    using WHO.NOK.Core.Common.Resources;
 
     /// <summary>
     /// Fluent validator for <see cref="NBWRecommendationsViewModel"/> .

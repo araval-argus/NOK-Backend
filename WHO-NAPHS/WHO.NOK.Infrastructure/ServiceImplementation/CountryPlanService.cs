@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8600, CS8602, CS8604, CS8603
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Collections.Generic;
     using System.Data;
@@ -18,22 +18,22 @@ namespace WHO.NAPHS.Infrastructure.ServiceImplementation
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Localization;
     using Newtonsoft.Json;
-    using WHO.NAPHS.BusinessLogic.Features.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Assessments;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Country;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.StrategicAction;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Constant;
-    using WHO.NAPHS.Core.Wrappers;
-    using WHO.NAPHS.Infrastructure.Helper;
-    using WHO.NAPHS.Infrastructure.Models.Assessments;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
-    using WHO.NAPHS.Infrastructure.Models.Plans;
-    using Common = WHO.NAPHS.Core.Common;
+    using WHO.NOK.BusinessLogic.Features.CountryPlan;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.Assessments;
+    using WHO.NOK.BusinessLogic.ViewModels.Country;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.StrategicAction;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Constant;
+    using WHO.NOK.Core.Wrappers;
+    using WHO.NOK.Infrastructure.Helper;
+    using WHO.NOK.Infrastructure.Models.Assessments;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Infrastructure.Models.Plans;
+    using Common = WHO.NOK.Core.Common;
 
     /// <summary>
     /// Implement the <see cref="ICountryPlanService"/> interface.

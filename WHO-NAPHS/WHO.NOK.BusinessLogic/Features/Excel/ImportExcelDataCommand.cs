@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.Excel
+namespace WHO.NOK.BusinessLogic.Features.Excel
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.Excel;
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.BusinessLogic.ViewModels.Excel;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Command to import excel data from the front end by parsing the excel file.

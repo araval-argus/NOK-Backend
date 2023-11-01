@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
     /// <summary>
     /// IBase service is used to register all the service that inherited from this service.

@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
-    using WHO.NAPHS.BusinessLogic.Features.PlanRecommendations;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PlanRecommendations;
+    using WHO.NOK.BusinessLogic.Features.PlanRecommendations;
+    using WHO.NOK.BusinessLogic.ViewModels.PlanRecommendations;
 
     /// <summary>
     /// Plan Recommendations service.

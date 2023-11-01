@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Countries
+namespace WHO.NOK.Infrastructure.Models.Countries
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Currency Database Model.

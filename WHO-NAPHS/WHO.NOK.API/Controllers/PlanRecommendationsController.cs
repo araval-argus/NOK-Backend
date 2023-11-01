@@ -4,18 +4,18 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Controllers
+namespace WHO.NOK.API.Controllers
 {
     using FluentValidation;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using WHO.NAPHS.API.Helper;
-    using WHO.NAPHS.BusinessLogic.Features.PlanRecommendations;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PlanRecommendations;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Core.ResponseMiddleware;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.API.Helper;
+    using WHO.NOK.BusinessLogic.Features.PlanRecommendations;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.PlanRecommendations;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Core.ResponseMiddleware;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Controller for Plan Recommendations.

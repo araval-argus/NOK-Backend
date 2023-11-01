@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
-    using WHO.NAPHS.BusinessLogic.Features;
-    using WHO.NAPHS.BusinessLogic.Features.StrategicAction;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.Features;
+    using WHO.NOK.BusinessLogic.Features.StrategicAction;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
 
     /// <summary>
     /// Service interface to perform operations on strategic actions.

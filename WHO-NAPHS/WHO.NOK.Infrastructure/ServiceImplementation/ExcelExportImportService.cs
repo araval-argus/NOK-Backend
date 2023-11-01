@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8600, CS8602, CS8604
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Data;
     using System.Threading.Tasks;
@@ -21,17 +21,17 @@ namespace WHO.NAPHS.Infrastructure.ServiceImplementation
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Localization;
     using Newtonsoft.Json;
-    using WHO.NAPHS.BusinessLogic.Features.Excel;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Excel;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Constant;
-    using WHO.NAPHS.Core.Wrappers;
-    using WHO.NAPHS.Infrastructure.Helper;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
-    using WHO.NAPHS.Infrastructure.Models.Excel;
-    using WHO.NAPHS.Infrastructure.Models.Plans;
+    using WHO.NOK.BusinessLogic.Features.Excel;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.Excel;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Constant;
+    using WHO.NOK.Core.Wrappers;
+    using WHO.NOK.Infrastructure.Helper;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Infrastructure.Models.Excel;
+    using WHO.NOK.Infrastructure.Models.Plans;
 
     /// <summary>
     /// Implements the <see cref="IExcelExportImportService"/> service interface.

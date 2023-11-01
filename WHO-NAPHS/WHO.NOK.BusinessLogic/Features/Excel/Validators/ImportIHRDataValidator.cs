@@ -4,12 +4,12 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.Excel.Validators
+namespace WHO.NOK.BusinessLogic.Features.Excel.Validators
 {
     using FluentValidation;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.Validators;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.BusinessLogic.Validators;
+    using WHO.NOK.Core.Common.Resources;
 
     /// <summary>
     /// Fluent validator for <see cref="ImportIHRDataCommand"/>.

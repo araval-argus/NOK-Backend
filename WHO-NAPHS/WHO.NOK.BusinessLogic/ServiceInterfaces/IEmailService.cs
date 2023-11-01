@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
-    using WHO.NAPHS.BusinessLogic.Helper.EmailHelper;
+    using WHO.NOK.BusinessLogic.Helper.EmailHelper;
 
     /// <summary>
     /// Email service interface.

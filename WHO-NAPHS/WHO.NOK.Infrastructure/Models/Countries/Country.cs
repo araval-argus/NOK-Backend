@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Countries
+namespace WHO.NOK.Infrastructure.Models.Countries
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Infrastructure.Models.Users;
+    using WHO.NOK.Infrastructure.Models.Users;
 
     /// <summary>
     /// Country Database Model.

@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan
+namespace WHO.NOK.BusinessLogic.ViewModels.CountryPlan
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
 
     /// <summary>
     /// Plan details view model to get the complete plan details for planning page.

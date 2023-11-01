@@ -4,17 +4,17 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Controllers
+namespace WHO.NOK.API.Controllers
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using WHO.NAPHS.API.Helper;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Country;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Language;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.API.Helper;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels;
+    using WHO.NOK.BusinessLogic.ViewModels.Country;
+    using WHO.NOK.BusinessLogic.ViewModels.Language;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Controller to get the common values for the drop-downs.

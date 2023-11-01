@@ -9,10 +9,10 @@ namespace Namespace
     using FluentValidation;
 
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.Features.User;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.BusinessLogic.Features.User;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
 
     /// <summary>
     /// Fluent validator for <see cref="UpdateUserDetailsCommand"/> class.

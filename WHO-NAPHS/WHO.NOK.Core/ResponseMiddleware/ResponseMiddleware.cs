@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8600, CS8604, CS8602, CS8625
 
-namespace WHO.NAPHS.Core.ResponseMiddleware
+namespace WHO.NOK.Core.ResponseMiddleware
 {
     using System.Net;
     using Microsoft.AspNetCore.Http;
@@ -15,8 +15,8 @@ namespace WHO.NAPHS.Core.ResponseMiddleware
     using Microsoft.Extensions.Logging;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Response middleware class.

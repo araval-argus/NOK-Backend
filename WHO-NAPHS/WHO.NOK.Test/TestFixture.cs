@@ -2,16 +2,16 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace WHO.NAPHS.API.Test.Fixture
+namespace WHO.NOK.API.Test.Fixture
 {
     using System.Security.Claims;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-    using WHO.NAPHS.API.Helper;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Constant;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.API.Helper;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Constant;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// TestFixture class.

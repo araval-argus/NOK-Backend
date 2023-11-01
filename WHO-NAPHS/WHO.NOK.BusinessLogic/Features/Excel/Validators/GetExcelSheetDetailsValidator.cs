@@ -4,14 +4,14 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.CountryPlan.Validators
+namespace WHO.NOK.BusinessLogic.Features.CountryPlan.Validators
 {
     using FluentValidation;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.Features.Excel;
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Constant;
+    using WHO.NOK.BusinessLogic.Features.Excel;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Constant;
 
     /// <summary>
     /// Fluent validator for <see cref="GetExcelSheetDetailsCommand"/>.

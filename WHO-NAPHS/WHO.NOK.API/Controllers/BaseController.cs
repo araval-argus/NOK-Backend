@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Controllers
+namespace WHO.NOK.API.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
 

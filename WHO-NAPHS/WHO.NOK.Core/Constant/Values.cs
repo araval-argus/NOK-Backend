@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Core.Constant
+namespace WHO.NOK.Core.Constant
 {
     /// <summary>
     /// Common values.

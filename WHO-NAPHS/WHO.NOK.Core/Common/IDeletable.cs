@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Core.Common
+namespace WHO.NOK.Core.Common
 {
     /// <summary>
     /// Interface to set the delete property of the model.

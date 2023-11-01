@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.User
+namespace WHO.NOK.BusinessLogic.ViewModels.User
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.Country;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.BusinessLogic.ViewModels.Country;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// View model for the User.

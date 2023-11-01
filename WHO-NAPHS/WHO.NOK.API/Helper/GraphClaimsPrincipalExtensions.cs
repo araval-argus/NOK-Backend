@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Helper
+namespace WHO.NOK.API.Helper
 {
     using System.Security.Claims;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Claims principal extension.

@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Users
+namespace WHO.NOK.Infrastructure.Models.Users
 {
     using System.ComponentModel.DataAnnotations;
-    using Common = WHO.NAPHS.Core.Common;
+    using Common = WHO.NOK.Core.Common;
 
     /// <summary>
     /// UserRole database model.

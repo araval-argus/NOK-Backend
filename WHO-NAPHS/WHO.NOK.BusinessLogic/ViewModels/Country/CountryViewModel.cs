@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Country;
+namespace WHO.NOK.BusinessLogic.ViewModels.Country;
 
 /// <summary>
 /// View model for country.

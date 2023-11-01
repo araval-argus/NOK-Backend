@@ -4,10 +4,10 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Plans
+namespace WHO.NOK.Infrastructure.Models.Plans
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// DB Model for collaborating institutes that is being mapped with country and some common institutes.

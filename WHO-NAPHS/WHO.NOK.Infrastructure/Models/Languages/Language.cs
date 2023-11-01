@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Languages
+namespace WHO.NOK.Infrastructure.Models.Languages
 {
     using System.ComponentModel.DataAnnotations;
 

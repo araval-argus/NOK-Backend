@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.DetailedActivity
+namespace WHO.NOK.BusinessLogic.ViewModels.DetailedActivity
 {
     /// <summary>
     /// Detailed Activity View Model.

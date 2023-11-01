@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan
+namespace WHO.NOK.BusinessLogic.ViewModels.CountryPlan
 {
     /// <summary>
     /// Assistance Data view model.

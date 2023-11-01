@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Core.Wrappers
+namespace WHO.NOK.Core.Wrappers
 {
     using System.ComponentModel;
 

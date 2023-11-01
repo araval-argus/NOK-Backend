@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.CountryPlan
+namespace WHO.NOK.BusinessLogic.Features.CountryPlan
 {
-    using WHO.NAPHS.BusinessLogic.Helper;
+    using WHO.NOK.BusinessLogic.Helper;
 
     /// <summary>
     /// Get shared plans.

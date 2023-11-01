@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.ErrorLog
+namespace WHO.NOK.Infrastructure.Models.ErrorLog
 {
     /// <summary>
     /// SQL Error logs DB Model.

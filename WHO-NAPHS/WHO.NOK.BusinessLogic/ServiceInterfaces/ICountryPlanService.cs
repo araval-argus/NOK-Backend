@@ -4,12 +4,12 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
-    using WHO.NAPHS.BusinessLogic.Features.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Assessments;
-    using WHO.NAPHS.BusinessLogic.ViewModels.CountryPlan;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.Features.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.Assessments;
+    using WHO.NOK.BusinessLogic.ViewModels.CountryPlan;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
 
     /// <summary>
     /// Country service plan service interface.

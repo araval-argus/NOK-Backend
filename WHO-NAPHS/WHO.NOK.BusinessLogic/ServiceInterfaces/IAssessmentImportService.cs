@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.Assessments;
+    using WHO.NOK.BusinessLogic.ViewModels.Assessments;
 
     /// <summary>
     /// Service to fetch assessments like JEE and SPAR from the plan creation time.

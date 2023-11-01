@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Core.Common.Resources
+namespace WHO.NOK.Core.Common.Resources
 {
     /// <summary>
     /// Dummy Class for Shared Resources.

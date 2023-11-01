@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.PlanRecommendations
+namespace WHO.NOK.BusinessLogic.Features.PlanRecommendations
 {
     /// <summary>
     /// Class to select ihr actions.

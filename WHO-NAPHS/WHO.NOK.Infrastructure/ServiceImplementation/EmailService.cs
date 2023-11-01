@@ -4,14 +4,14 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Models;
-    using WHO.NAPHS.BusinessLogic.Helper.EmailHelper;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.BusinessLogic.Helper.EmailHelper;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// Initializes a new instance of <see cref="EmailService.cs"/> class.

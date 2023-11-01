@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Excel
+namespace WHO.NOK.BusinessLogic.ViewModels.Excel
 {
     /// <summary>
     /// IHR Recommendations ViewModel.

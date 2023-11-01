@@ -7,10 +7,10 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.BusinessLogic.Features.User
+namespace WHO.NOK.BusinessLogic.Features.User
 {
     using Microsoft.AspNetCore.Http;
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
 
     /// <summary>
     /// Upload User Profile Picture Command class.

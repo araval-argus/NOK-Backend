@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.UserClaims
+namespace WHO.NOK.BusinessLogic.ViewModels.UserClaims
 {
     /// <summary>
     /// User claims view model.

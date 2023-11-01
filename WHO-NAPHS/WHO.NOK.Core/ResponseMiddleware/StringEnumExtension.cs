@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8604
 
-namespace WHO.NAPHS.Core.ResponseMiddleware
+namespace WHO.NOK.Core.ResponseMiddleware
 {
     using System.ComponentModel;
     using System.Globalization;

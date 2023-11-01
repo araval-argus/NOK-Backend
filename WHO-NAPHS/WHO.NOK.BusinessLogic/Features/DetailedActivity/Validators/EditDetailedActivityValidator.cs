@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.DetailedActivity.Validators
+namespace WHO.NOK.BusinessLogic.Features.DetailedActivity.Validators
 {
     using FluentValidation;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.Core.Common.Resources;
 
     /// <summary>
     /// Fluent validator for update detailed activity command.

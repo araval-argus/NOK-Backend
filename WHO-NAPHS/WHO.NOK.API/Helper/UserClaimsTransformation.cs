@@ -4,12 +4,12 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Helper
+namespace WHO.NOK.API.Helper
 {
     using System.Security.Claims;
     using Microsoft.AspNetCore.Authentication;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
 
     /// <summary>
     /// User claims transformation.

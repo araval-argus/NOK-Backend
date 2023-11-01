@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.CacheInterfaces
+namespace WHO.NOK.BusinessLogic.CacheInterfaces
 {
     /// <summary>
     /// ICacheInterface service is used as a Base Interface for Cache Implementation.

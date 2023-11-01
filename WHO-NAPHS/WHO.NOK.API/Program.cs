@@ -7,8 +7,8 @@
 using NLog.Extensions.Logging;
 using NLog.Web;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using WHO.NAPHS.API.Helper;
-using WHO.NAPHS.Core.ResponseMiddleware;
+using WHO.NOK.API.Helper;
+using WHO.NOK.Core.ResponseMiddleware;
 
 /// <summary>
 /// Program Main Class.

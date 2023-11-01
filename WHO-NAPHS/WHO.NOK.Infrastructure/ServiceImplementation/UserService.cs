@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8600,CS8604
 
-namespace WHO.NAPHS.Infrastructure.ServiceImplementation
+namespace WHO.NOK.Infrastructure.ServiceImplementation
 {
     using System.Collections.Generic;
     using System.Data;
@@ -16,19 +16,19 @@ namespace WHO.NAPHS.Infrastructure.ServiceImplementation
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.BusinessLogic.Features.User;
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
-    using WHO.NAPHS.BusinessLogic.ViewModels.User;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.Constant;
-    using WHO.NAPHS.Core.Wrappers;
-    using WHO.NAPHS.Infrastructure.Helper;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
-    using WHO.NAPHS.Infrastructure.Models.Users;
+    using WHO.NOK.BusinessLogic.Features.User;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.User;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.Constant;
+    using WHO.NOK.Core.Wrappers;
+    using WHO.NOK.Infrastructure.Helper;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Infrastructure.Models.Users;
 
     /// <summary>
     /// Implement the <see cref="IUserService"/> interface.

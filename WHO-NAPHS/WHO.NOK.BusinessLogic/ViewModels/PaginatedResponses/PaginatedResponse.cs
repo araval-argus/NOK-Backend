@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses
+namespace WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses
 {
     /// <summary>
     /// A response class for paginated data.

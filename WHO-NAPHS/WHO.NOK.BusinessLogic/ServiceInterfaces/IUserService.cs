@@ -4,12 +4,12 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ServiceInterfaces
+namespace WHO.NOK.BusinessLogic.ServiceInterfaces
 {
-    using WHO.NAPHS.BusinessLogic.Features.User;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
-    using WHO.NAPHS.BusinessLogic.ViewModels.User;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.BusinessLogic.Features.User;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.User;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
 
     /// <summary>
     /// Interface definitions for the User.

@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.User
+namespace WHO.NOK.BusinessLogic.ViewModels.User
 {
     using FluentValidation;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.Core.Common.Resources;
 
     /// <summary>
     /// Fluent validator for <see cref="UserViewModel"/> .

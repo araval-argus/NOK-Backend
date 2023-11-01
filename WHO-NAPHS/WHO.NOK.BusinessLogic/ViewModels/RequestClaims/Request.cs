@@ -4,9 +4,9 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims
+namespace WHO.NOK.BusinessLogic.ViewModels.RequestClaims
 {
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
 
     /// <summary>
     /// Request model to save the user claims data.

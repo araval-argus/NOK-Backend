@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace WHO.NAPHS.API.Tests.Features.Profile
+namespace WHO.NOK.API.Tests.Features.Profile
 {
     using FluentValidation;
     using Microsoft.AspNetCore.Http;
@@ -11,16 +11,16 @@ namespace WHO.NAPHS.API.Tests.Features.Profile
     using Microsoft.Extensions.Localization;
     using NSubstitute;
     using Shouldly;
-    using WHO.NAPHS.API.Controllers;
-    using WHO.NAPHS.API.Test.Fixture;
-    using WHO.NAPHS.BusinessLogic.Features.User;
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.Country;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
-    using WHO.NAPHS.BusinessLogic.ViewModels.User;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Core.Common.Resources;
+    using WHO.NOK.API.Controllers;
+    using WHO.NOK.API.Test.Fixture;
+    using WHO.NOK.BusinessLogic.Features.User;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.Country;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.User;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Core.Common.Resources;
     using Xunit;
 
     /// <summary>

@@ -7,7 +7,7 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8601
 
-namespace WHO.NAPHS.API.Helper
+namespace WHO.NOK.API.Helper
 {
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -17,14 +17,14 @@ namespace WHO.NAPHS.API.Helper
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.OpenApi.Models;
     using Newtonsoft.Json;
-    using WHO.NAPHS.API.Helper.Configuration;
-    using WHO.NAPHS.BusinessLogic.CacheInterfaces;
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.Core.Constant;
-    using WHO.NAPHS.Infrastructure;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
-    using WHO.NAPHS.Infrastructure.ServiceImplementation;
+    using WHO.NOK.API.Helper.Configuration;
+    using WHO.NOK.BusinessLogic.CacheInterfaces;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.Core.Constant;
+    using WHO.NOK.Infrastructure;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Infrastructure.ServiceImplementation;
 
     /// <summary>
     /// Contains for extension methods of IServiceCollection interface.
@@ -53,7 +53,7 @@ namespace WHO.NAPHS.API.Helper
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(
                     configuration.GetConnectionString("Default"),
-                    b => b.MigrationsAssembly("WHO.NAPHS.API")));
+                    b => b.MigrationsAssembly("WHO.NOK.API")));
 
                     // Get AppSettings from database.
             IConfiguration customConfiguration = new ConfigurationBuilder()

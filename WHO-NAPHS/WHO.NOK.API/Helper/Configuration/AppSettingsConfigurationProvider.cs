@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.API.Helper.Configuration
+namespace WHO.NOK.API.Helper.Configuration
 {
     using Microsoft.EntityFrameworkCore;
-    using WHO.NAPHS.Core.Constant;
-    using WHO.NAPHS.Infrastructure.Models.DatabaseContext;
+    using WHO.NOK.Core.Constant;
+    using WHO.NOK.Infrastructure.Models.DatabaseContext;
 
     /// <summary>
     /// Provides a configuration from the database.

@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.Infrastructure.Models.Users
+namespace WHO.NOK.Infrastructure.Models.Users
 {
     using System.ComponentModel.DataAnnotations;
-    using WHO.NAPHS.Core.Common;
-    using WHO.NAPHS.Infrastructure.Models.Countries;
+    using WHO.NOK.Core.Common;
+    using WHO.NOK.Infrastructure.Models.Countries;
 
     /// <summary>
     /// User Database model.

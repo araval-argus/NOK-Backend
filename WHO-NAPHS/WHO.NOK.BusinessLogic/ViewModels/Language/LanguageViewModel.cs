@@ -4,7 +4,7 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.ViewModels.Language
+namespace WHO.NOK.BusinessLogic.ViewModels.Language
 {
     /// <summary>
     /// View model for language.

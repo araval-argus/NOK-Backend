@@ -4,11 +4,11 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Features.Excel
+namespace WHO.NOK.BusinessLogic.Features.Excel
 {
     using Microsoft.AspNetCore.Http;
-    using WHO.NAPHS.BusinessLogic.ViewModels.RequestClaims;
-    using WHO.NAPHS.Core.Common;
+    using WHO.NOK.BusinessLogic.ViewModels.RequestClaims;
+    using WHO.NOK.Core.Common;
 
     /// <summary>
     /// Command to get excel file sheets details to parse a particular sheet.

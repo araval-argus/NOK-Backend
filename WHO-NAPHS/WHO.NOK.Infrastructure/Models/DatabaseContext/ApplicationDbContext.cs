@@ -7,20 +7,20 @@
 // to suppress constructor error.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.Infrastructure.Models.DatabaseContext
+namespace WHO.NOK.Infrastructure.Models.DatabaseContext
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.EntityFrameworkCore;
-    using WHO.NAPHS.Infrastructure.Models.Assessments;
-    using WHO.NAPHS.Infrastructure.Models.Configurations;
-    using WHO.NAPHS.Infrastructure.Models.Countries;
-    using WHO.NAPHS.Infrastructure.Models.ErrorLog;
-    using WHO.NAPHS.Infrastructure.Models.Excel;
-    using WHO.NAPHS.Infrastructure.Models.Languages;
-    using WHO.NAPHS.Infrastructure.Models.Permissions;
-    using WHO.NAPHS.Infrastructure.Models.Plans;
-    using WHO.NAPHS.Infrastructure.Models.Users;
-    using Common = WHO.NAPHS.Core.Common;
+    using WHO.NOK.Infrastructure.Models.Assessments;
+    using WHO.NOK.Infrastructure.Models.Configurations;
+    using WHO.NOK.Infrastructure.Models.Countries;
+    using WHO.NOK.Infrastructure.Models.ErrorLog;
+    using WHO.NOK.Infrastructure.Models.Excel;
+    using WHO.NOK.Infrastructure.Models.Languages;
+    using WHO.NOK.Infrastructure.Models.Permissions;
+    using WHO.NOK.Infrastructure.Models.Plans;
+    using WHO.NOK.Infrastructure.Models.Users;
+    using Common = WHO.NOK.Core.Common;
 
     /// <summary>
     /// Application DB Context.

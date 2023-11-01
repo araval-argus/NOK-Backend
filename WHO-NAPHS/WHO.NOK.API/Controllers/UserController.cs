@@ -7,23 +7,23 @@
 // to suppress possibly null reference warnings.
 #pragma warning disable CS8618
 
-namespace WHO.NAPHS.API.Controllers
+namespace WHO.NOK.API.Controllers
 {
     using FluentValidation;
     using FluentValidation.Results;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Localization;
-    using WHO.NAPHS.API.Helper;
-    using WHO.NAPHS.BusinessLogic.Features.User;
-    using WHO.NAPHS.BusinessLogic.Helper;
-    using WHO.NAPHS.BusinessLogic.ServiceInterfaces;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
-    using WHO.NAPHS.BusinessLogic.ViewModels.User;
-    using WHO.NAPHS.BusinessLogic.ViewModels.UserClaims;
-    using WHO.NAPHS.Core.Common.Resources;
-    using WHO.NAPHS.Core.ResponseMiddleware;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.API.Helper;
+    using WHO.NOK.BusinessLogic.Features.User;
+    using WHO.NOK.BusinessLogic.Helper;
+    using WHO.NOK.BusinessLogic.ServiceInterfaces;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.BusinessLogic.ViewModels.User;
+    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
+    using WHO.NOK.Core.Common.Resources;
+    using WHO.NOK.Core.ResponseMiddleware;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Controller for User Management.

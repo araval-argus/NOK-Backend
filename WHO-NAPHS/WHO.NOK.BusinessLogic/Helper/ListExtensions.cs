@@ -4,12 +4,12 @@
 // written consent from WHO.
 // </copyright>
 
-namespace WHO.NAPHS.BusinessLogic.Helper
+namespace WHO.NOK.BusinessLogic.Helper
 {
     using System.Collections.Generic;
     using System.Reflection;
-    using WHO.NAPHS.BusinessLogic.ViewModels.PaginatedResponses;
-    using WHO.NAPHS.Core.Wrappers;
+    using WHO.NOK.BusinessLogic.ViewModels.PaginatedResponses;
+    using WHO.NOK.Core.Wrappers;
 
     /// <summary>
     /// Extension class of List.
