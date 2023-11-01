@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build">
   <Sdk Name="Microsoft.Build.Sql" Version="0.1.9-preview" />
   <PropertyGroup>
-    <Name>WHO.NAPHS.Database</Name>
+    <Name>WHO.NOK.Database</Name>
     <ProjectGuid>{9A75A101-FFE0-4912-9065-B66B04D1500C}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
     <ModelCollation>1033, CI</ModelCollation>
