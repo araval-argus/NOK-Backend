@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+      "companyName": "WHO",
+      "copyrightText": "This source code is owned by {companyName} and is not allowed to be copied, reproduced,\npublished, distributed or transmitted to or stored in any manner without prior\nwritten consent from {companyName}.",
+      "xmlHeader": true,
+      "variables": {
+        "companyWebSite": "https://www.who.int/"
+      },
+      "documentPrivateElements": true,
+      "documentationCulture": "en-US"
+    },
+    "indentation": {
+      "indentationSize": 4,
+      "tabSize": 4,
+      "useTabs": false
+    },
+    "namingRules": {
+      "allowCommonHungarianPrefixes": false
+    }
+  }
+}

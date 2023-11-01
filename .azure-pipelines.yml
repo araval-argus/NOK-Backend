@@ -1,0 +1,40 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+trigger:
+- Development
+
+pool:
+  vmImage: "ubuntu-latest"  
+  
+variables:
+  buildConfiguration: 'Release'
+  artifactName: 'WHO.NAPS.API'  # Customize the artifact name as needed
+  
+steps:
+- script: |
+    # Publish API
+    dotnet publish -c Release "$(Build.SourcesDirectory)/WHO-NAPHS/WHO.NAPHS.API/WHO.NAPHS.API.csproj" -o $(Build.StagingDirectory)/WHO.NAPHS.API
+  displayName: 'Build API'
+
+- script: |
+    # Build Database
+    dotnet build -c Release "$(Build.SourcesDirectory)/WHO-NAPHS/WHO.NAPHS.Database/WHO.NAPHS.Database.sqlproj" -o $(Build.StagingDirectory)/Database
+  displayName: 'Build Database'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.StagingDirectory)/WHO.NAPHS.API/'
+    includeRootFolder: false
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(artifactName).zip'
+    replaceExistingArchive: true
+  displayName: 'Create Artifact Zip'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifactName: '$(artifactName)'
