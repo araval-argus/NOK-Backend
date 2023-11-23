@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build">
+  <Sdk Name="Microsoft.Build.Sql" Version="0.1.9-preview" />
+  <PropertyGroup>
+    <Name>WHO.NOK.Database</Name>
+    <ProjectGuid>{9a75a101-ffe0-4912-9065-b66b04d1500c}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <ModelCollation>1033, CI</ModelCollation>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\SQLCustomFunctions" />
+    <Folder Include="dbo\StoredProcedures" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeploymentScript.sql" />
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+    <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />
+  </Target>
+</Project>
