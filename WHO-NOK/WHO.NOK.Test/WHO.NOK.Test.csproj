@@ -29,8 +29,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\WHO.NAPHS.API\WHO.NOK.API.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\WHO.NAPHS.Core\WHO.NOK.Core.csproj" />
+    <ProjectReference Include="..\WHO.NOK.Core\WHO.NOK.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

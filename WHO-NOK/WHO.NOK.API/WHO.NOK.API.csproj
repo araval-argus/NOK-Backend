@@ -42,9 +42,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WHO.NAPHS.BusinessLogic\WHO.NOK.BusinessLogic.csproj" />
-    <ProjectReference Include="..\WHO.NAPHS.Core\WHO.NOK.Core.csproj" />
-    <ProjectReference Include="..\WHO.NAPHS.Infrastructure\WHO.NOK.Infrastructure.csproj" />
+    <ProjectReference Include="..\WHO.NOK.Core\WHO.NOK.Core.csproj" />
+    <ProjectReference Include="..\WHO.NOK.Infrastructure\WHO.NOK.Infrastructure.csproj" />
   </ItemGroup>
 
   <Target Name="CopyNLogConfig" AfterTargets="Build">

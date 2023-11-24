@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WHO.NAPHS.Core\WHO.NOK.Core.csproj" />
-    <ProjectReference Include="..\WHO.NAPHS.BusinessLogic\WHO.NOK.BusinessLogic.csproj" />
+    <ProjectReference Include="..\WHO.NOK.BusinessLogic\WHO.NOK.BusinessLogic.csproj" />
+    <ProjectReference Include="..\WHO.NOK.Core\WHO.NOK.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
