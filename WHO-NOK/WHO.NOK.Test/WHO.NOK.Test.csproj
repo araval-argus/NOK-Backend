@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WHO.NAPHS.API\WHO.NOK.API.csproj" />
+    <ProjectReference Include="..\WHO.NOK.API\WHO.NOK.API.csproj" />
   </ItemGroup>
 
 </Project>
