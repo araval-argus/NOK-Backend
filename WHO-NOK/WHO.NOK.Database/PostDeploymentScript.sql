@@ -1,59 +1,61 @@
--- This file contains SQL statements that will be executed after the build script.
+-- -- This file contains SQL statements that will be executed after the build script.
 
--- Inserts Languages if the table is empty
-IF NOT EXISTS(SELECT *
-FROM [dbo].[Languages])
+-- -- Inserts Languages if the table is empty
+-- IF NOT EXISTS(SELECT *
+-- FROM [dbo].[Languages])
+-- BEGIN
+--     INSERT INTO [dbo].[Languages]
+--     VALUES
+--         (1, 'Arabic', 'ar'),
+--         (2, 'Chinese', 'zh'),
+--         (3, 'English', 'eng'),
+--         (4, 'French', 'fr'),
+--         (5, 'Russian', 'ru'),
+--         (6, 'Spanish', 'es')
+-- END
+
+-- --Inserts Roles if the table is empty
+IF NOT EXISTS (SELECT *
+               FROM [dbo].[Roles])
 BEGIN
-    INSERT INTO [dbo].[Languages]
+    SET IDENTITY_INSERT [dbo].[Roles] ON; -- Enable explicit identity insert
+
+    INSERT INTO [dbo].[Roles] ([RoleId], [Name], [Description])
     VALUES
-        (1, 'Arabic', 'ar'),
-        (2, 'Chinese', 'zh'),
-        (3, 'English', 'eng'),
-        (4, 'French', 'fr'),
-        (5, 'Russian', 'ru'),
-        (6, 'Spanish', 'es')
+        (1, 'System Admin', 'System Administrator'),
+        (2, 'Reviewer', 'Reviewer'),
+        (3, 'Contributor', 'Contributor'),
+        (4, 'Viewer', 'Viewer');
+
+    SET IDENTITY_INSERT [dbo].[Roles] OFF; -- Disable explicit identity insert
 END
 
---Inserts Roles if the table is empty
-IF NOT EXISTS(SELECT *
-FROM [dbo].[Roles])
-BEGIN
-    INSERT INTO [dbo].[Roles]
-    VALUES
-        (1, 'System Admin', 7, 'System Admin'),
-        (2, 'Regional Admin', 6, 'Regional Admin'),
-        (3, 'Country Admin', 5, 'Country Admin'),
-        (4, 'Country User', 3, 'Country User'),
-        (5, 'Secretariat', 4, 'Secretariat'),
-        (6, 'Global Viewer', 1, 'Global Viewer'),
-        (7, 'Country Viewer', 2, 'Country Viewer')
-END
 
-IF( NOT EXISTS (SELECT TOP 1
-    1
-FROM DetailedActivityTypes))
-BEGIN
-    INSERT INTO DetailedActivityTypes
-        (Activity, CreatedAt, CreatedBy, LastUpdatedAt, LastUpdatedBy)
-    VALUES
-        ('Advocacy', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Assessment and data use', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Coordination/collaboration', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Designation', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Dissemination', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Financing', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('HR', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Infrastructure', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Meeting/workshop', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Monitoring and Evaluation', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Planning and strategy', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Procurement', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Programme implementation', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('SOPs/Policy', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Tool development', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Training', GETUTCDATE(), 1, GETUTCDATE(), 1),
-        ('Other', GETUTCDATE(), 1, GETUTCDATE(), 1)
-END
+-- IF( NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM DetailedActivityTypes))
+-- BEGIN
+--     INSERT INTO DetailedActivityTypes
+--         (Activity, CreatedAt, CreatedBy, LastUpdatedAt, LastUpdatedBy)
+--     VALUES
+--         ('Advocacy', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Assessment and data use', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Coordination/collaboration', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Designation', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Dissemination', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Financing', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('HR', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Infrastructure', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Meeting/workshop', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Monitoring and Evaluation', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Planning and strategy', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Procurement', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Programme implementation', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('SOPs/Policy', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Tool development', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Training', GETUTCDATE(), 1, GETUTCDATE(), 1),
+--         ('Other', GETUTCDATE(), 1, GETUTCDATE(), 1)
+-- END
 
 IF NOT EXISTS(SELECT *
 FROM [dbo].[Countries])
@@ -307,996 +309,996 @@ VALUES
     (N'Tokelau', N'TK', N'TKL', CAST(-9.024063847147180 AS Decimal(20, 15)), CAST(-171.921967420053000 AS Decimal(20, 15)), N'WPRO')
 END
 
--- Insert a user.
-IF NOT EXISTS(Select *
-FROM [dbo].[Users]
-WHERE [Email] = 'dabhip@who.int')
-BEGIN
-    INSERT INTO [dbo].[Users]
-        ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
-        ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
-        ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
-    VALUES
-        ('Pratik', 'Dabhi', 'dabhip@who.int', NULL, NULL, NULL, 3
-        , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
-            null, 0, 0, 1, 0)
+-- -- Insert a user.
+-- IF NOT EXISTS(Select *
+-- FROM [dbo].[Users]
+-- WHERE [Email] = 'dabhip@who.int')
+-- BEGIN
+--     INSERT INTO [dbo].[Users]
+--         ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
+--         ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
+--         ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
+--     VALUES
+--         ('Pratik', 'Dabhi', 'dabhip@who.int', NULL, NULL, NULL, 3
+--         , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
+--             null, 0, 0, 1, 0)
 
-    INSERT INTO [dbo].[UserRoles]
-        ([UserId], [RoleId])
-    VALUES
-        (SCOPE_IDENTITY(), 1)
-END
+--     INSERT INTO [dbo].[UserRoles]
+--         ([UserId], [RoleId])
+--     VALUES
+--         (SCOPE_IDENTITY(), 1)
+-- END
 
--- Insert a user.
-IF NOT EXISTS(Select *
-FROM [dbo].[Users]
-WHERE [Email] = 'shuklash@who.int')
-BEGIN
-    INSERT INTO [dbo].[Users]
-        ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
-        ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
-        ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
-    VALUES
-        ('Shaishav', 'Shukla', 'shuklash@who.int', NULL, NULL, NULL, 3
-        , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
-            null, 0, 0, 1, 0)
+-- -- Insert a user.
+-- IF NOT EXISTS(Select *
+-- FROM [dbo].[Users]
+-- WHERE [Email] = 'shuklash@who.int')
+-- BEGIN
+--     INSERT INTO [dbo].[Users]
+--         ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
+--         ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
+--         ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
+--     VALUES
+--         ('Shaishav', 'Shukla', 'shuklash@who.int', NULL, NULL, NULL, 3
+--         , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
+--             null, 0, 0, 1, 0)
 
-    INSERT INTO [dbo].[UserRoles]
-        ([UserId], [RoleId])
-    VALUES
-        (SCOPE_IDENTITY(), 1)
-END
+--     INSERT INTO [dbo].[UserRoles]
+--         ([UserId], [RoleId])
+--     VALUES
+--         (SCOPE_IDENTITY(), 1)
+-- END
 
--- Insert a user.
-IF NOT EXISTS(Select *
-FROM [dbo].[Users]
-WHERE [Email] = 'ankurk@who.int')
-BEGIN
-    INSERT INTO [dbo].[Users]
-        ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
-        ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
-        ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
-    VALUES
-        ('Ankur', 'Khunt', 'ankurk@who.int', NULL, NULL, NULL, 3
-        , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
-            null, 0, 0, 1, 0)
+-- -- Insert a user.
+-- IF NOT EXISTS(Select *
+-- FROM [dbo].[Users]
+-- WHERE [Email] = 'ankurk@who.int')
+-- BEGIN
+--     INSERT INTO [dbo].[Users]
+--         ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
+--         ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
+--         ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
+--     VALUES
+--         ('Ankur', 'Khunt', 'ankurk@who.int', NULL, NULL, NULL, 3
+--         , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
+--             null, 0, 0, 1, 0)
 
-    INSERT INTO [dbo].[UserRoles]
-        ([UserId], [RoleId])
-    VALUES
-        (SCOPE_IDENTITY(), 1)
-END
+--     INSERT INTO [dbo].[UserRoles]
+--         ([UserId], [RoleId])
+--     VALUES
+--         (SCOPE_IDENTITY(), 1)
+-- END
 
--- Insert a user.
-IF NOT EXISTS(Select *
-FROM [dbo].[Users]
-WHERE [Email] = 'sethyp@who.int')
-BEGIN
-    INSERT INTO [dbo].[Users]
-        ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
-        ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
-        ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
-    VALUES
-        ('Paresh', 'Sethy', 'sethyp@who.int', NULL, NULL, NULL, 3
-        , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
-            null, 0, 0, 1, 0)
+-- -- Insert a user.
+-- IF NOT EXISTS(Select *
+-- FROM [dbo].[Users]
+-- WHERE [Email] = 'sethyp@who.int')
+-- BEGIN
+--     INSERT INTO [dbo].[Users]
+--         ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
+--         ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
+--         ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
+--     VALUES
+--         ('Paresh', 'Sethy', 'sethyp@who.int', NULL, NULL, NULL, 3
+--         , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
+--             null, 0, 0, 1, 0)
 
-    INSERT INTO [dbo].[UserRoles]
-        ([UserId], [RoleId])
-    VALUES
-        (SCOPE_IDENTITY(), 1)
-END
+--     INSERT INTO [dbo].[UserRoles]
+--         ([UserId], [RoleId])
+--     VALUES
+--         (SCOPE_IDENTITY(), 1)
+-- END
 
--- Insert a user.
-IF NOT EXISTS(Select *
-FROM [dbo].[Users]
-WHERE [Email] = 'pipadwalak@who.int')
-BEGIN
-    INSERT INTO [dbo].[Users]
-        ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
-        ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
-        ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
-    VALUES
-        ('Kaif', 'Pipadwala', 'pipadwalak@who.int', NULL, NULL, NULL, 3
-        , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
-            null, 0, 0, 1, 0)
+-- -- Insert a user.
+-- IF NOT EXISTS(Select *
+-- FROM [dbo].[Users]
+-- WHERE [Email] = 'pipadwalak@who.int')
+-- BEGIN
+--     INSERT INTO [dbo].[Users]
+--         ([FirstName],[LastName],[Email],[ProfilePicture],[CountryId], [Region],[PreferredLanguageId]
+--         ,[Institution],[Affiliation],[CreatedAt],[CreatedBy],[LastUpdatedAt],[LastUpdatedBy]
+--         ,[Status], [DeactivationRequest],[IsReadOnly],[IsActive],[IsDeleted])
+--     VALUES
+--         ('Kaif', 'Pipadwala', 'pipadwalak@who.int', NULL, NULL, NULL, 3
+--         , 'test', 'test', GETUTCDATE(), 1, GETUTCDATE(), 1,
+--             null, 0, 0, 1, 0)
 
-    INSERT INTO [dbo].[UserRoles]
-        ([UserId], [RoleId])
-    VALUES
-        (SCOPE_IDENTITY(), 1)
-END
+--     INSERT INTO [dbo].[UserRoles]
+--         ([UserId], [RoleId])
+--     VALUES
+--         (SCOPE_IDENTITY(), 1)
+-- END
 
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM Sources))
-BEGIN
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM Sources))
+-- BEGIN
 
-    INSERT [dbo].[Sources]
-        ([Name], [Description])
-    VALUES
-        (N'Custom', N'Assessment for SPAR Technical Areas and Indicators'),
-        (N'JEE-Assessment', N'Assessment for JEE Technical Areas and Indicators'),
-        (N'SPAR-Assessment', N'Assessment for SPAR Technical Areas and Indicators'),
-        (N'IHRBenchmarks', N'Assessment for IHR Benchmarks and Indicators'),
-        (N'NBWAssessments', N'Assessment for NBW Technical Areas and Indicators')
-END
+--     INSERT [dbo].[Sources]
+--         ([Name], [Description])
+--     VALUES
+--         (N'Custom', N'Assessment for SPAR Technical Areas and Indicators'),
+--         (N'JEE-Assessment', N'Assessment for JEE Technical Areas and Indicators'),
+--         (N'SPAR-Assessment', N'Assessment for SPAR Technical Areas and Indicators'),
+--         (N'IHRBenchmarks', N'Assessment for IHR Benchmarks and Indicators'),
+--         (N'NBWAssessments', N'Assessment for NBW Technical Areas and Indicators')
+-- END
 
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM CommonTechnicalAreas))
-BEGIN
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM CommonTechnicalAreas))
+-- BEGIN
 
-    INSERT [dbo].[CommonTechnicalAreas]
-        ([DisplayName], [IndicatorId], [OrderBy])
-    VALUES
-        (N'Chemical events ', 1, 1),
-        (N'Financing ', 2, 2),
-        (N'Food safety ', 3, 3),
-        (N'Health emergency management ', 4, 4),
-        (N'Health services provision ', 5, 5),
-        (N'Human resources ', 6, 6),
-        (N'IHR Coordination, National IHR Focal Point functions and advocacy ', 7, 7),
-        (N'Infection prevention and control (IPC), ', 8, 8),
-        (N'Laboratory ', 9, 9),
-        (N'Points of entry (PoEs), and border health ', 10, 10),
-        (N'Policy, legal and normative Instruments to implement IHR ', 11, 11),
-        (N'Radiation emergencies', 12, 12),
-        (N'Risk communication and community engagement (RCCE), ', 13, 13),
-        (N'Surveillance ', 14, 14),
-        (N'Zoonotic diseases ', 15, 15)
-END
+--     INSERT [dbo].[CommonTechnicalAreas]
+--         ([DisplayName], [IndicatorId], [OrderBy])
+--     VALUES
+--         (N'Chemical events ', 1, 1),
+--         (N'Financing ', 2, 2),
+--         (N'Food safety ', 3, 3),
+--         (N'Health emergency management ', 4, 4),
+--         (N'Health services provision ', 5, 5),
+--         (N'Human resources ', 6, 6),
+--         (N'IHR Coordination, National IHR Focal Point functions and advocacy ', 7, 7),
+--         (N'Infection prevention and control (IPC), ', 8, 8),
+--         (N'Laboratory ', 9, 9),
+--         (N'Points of entry (PoEs), and border health ', 10, 10),
+--         (N'Policy, legal and normative Instruments to implement IHR ', 11, 11),
+--         (N'Radiation emergencies', 12, 12),
+--         (N'Risk communication and community engagement (RCCE), ', 13, 13),
+--         (N'Surveillance ', 14, 14),
+--         (N'Zoonotic diseases ', 15, 15)
+-- END
 
-IF (NOT EXISTS (SELECT TOP 1 1 FROM TechnicalAreas))
-BEGIN
-    INSERT [dbo].[TechnicalAreas] ([Name], [AreaCode], [AreaCodeId], [IsActive], [SourceId], [CountryId], [CommonTechnicalAreaId], [IsCustomTechnicalArea], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])    
-    VALUES 
-        (N'IHR Coordination, National IHR Focal Point functions and advocacy', N'C', N'2', 1, 2, NULL, 7, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Policy, Legal and normative Instruments to implement IHR', N'C', N'1', 1, 2, NULL, 11, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Financing', N'C', N'3', 1, 2, NULL, 2, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Laboratory', N'C', N'4', 1, 2, NULL, 9, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Surveillance', N'C', N'5', 1, 2, NULL, 14, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Human resources', N'C', N'6', 1, 2, NULL, 6, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Health emergency management', N'C', N'7', 1, 2, NULL, 4, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Health services provision', N'C', N'8', 1, 2, NULL, 5, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Infection prevention and control (IPC)', N'C', N'9', 1, 2, NULL, 8, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Risk communication and community engagement (RCCE)', N'C', N'10', 1, 2, NULL, 13, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Points of entry (PoEs) and border health', N'C', N'11', 1, 2, NULL, 10, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Zoonotic diseases', N'C', N'12', 1, 2, NULL, 15, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Food safety', N'C', N'13', 1, 2, NULL, 3, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Chemical events', N'C', N'14', 1, 2, NULL, 1, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Radiation emergencies', N'C', N'15', 1, 2, NULL, 12, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Legal instruments', N'P', N'1', 1, 1, NULL, 11, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Financing', N'P', N'2', 1, 1, NULL, 2, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'IHR coordination, national IHR Focal Point functions and advocacy', N'P', N'3', 1, 1, NULL, 7, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Antimicrobial resistance (AMR)', N'P', N'4', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Zoonotic disease', N'P', N'5', 1, 1, NULL, 15, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Food safety', N'P', N'6', 1, 1, NULL, 3, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Biosafety and biosecurity', N'P', N'7', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Immunization', N'P', N'8', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'National laboratory system', N'D', N'1', 1, 1, NULL, 9, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Surveillance', N'D', N'2', 1, 1, NULL, 14, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Human resources', N'D', N'3', 1, 1, NULL, 6, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Health emergency management', N'R', N'1', 1, 1, NULL, 4, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Linking public health and security authorities', N'R', N'2', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Health services provision', N'R', N'3', 1, 1, NULL, 5, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Infection prevention and control (IPC)', N'R', N'4', 1, 1, NULL, 8, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Risk communication and community engagement (RCCE)', N'R', N'5', 1, 1, NULL, 13, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Points of entry and border health', N'PoE', N'', 1, 1, NULL, 10, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Chemical events', N'CE', N'', 1, 1, NULL, 1, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
-        (N'Radiation emergencies', N'RE', N'', 1, 1, NULL, 12, 0, GETUTCDATE(), 0, GETUTCDATE(), 0)
-END
-
-
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM TechnicalAreaIndicators))
-BEGIN
-
-    SET IDENTITY_INSERT [dbo].[TechnicalAreaIndicators] ON
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (1, N'Policy, legal and normative instruments', 1, N'C', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (2, N'Gender Equality in health emergencies', 1, N'C', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (3, N'National IHR Focal Point functions', 2, N'C', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (4, N'Multisectoral IHR coordination mechanisms', 2, N'C', N'2.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (5, N'Advocacy for IHR implementation', 2, N'C', N'2.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (6, N'Financing for IHR implementation', 3, N'C', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (7, N'Financing for Public Health Emergency Response', 3, N'C', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (8, N'Specimen referral and transport system', 4, N'C', N'4.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (9, N'Implementation of a laboratory biosafety and biosecurity regime', 4, N'C', N'4.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (10, N'Laboratory quality system', 4, N'C', N'4.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (11, N'Laboratory testing capacity modalities', 4, N'C', N'4.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (12, N'Effective national diagnostic network', 4, N'C', N'4.5', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (13, N'Early warning surveillance function', 5, N'C', N'5.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (14, N'Event management (i.e., verification, investigation, analysis, and dissemination of information)', 5, N'C', N'5.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (15, N'Human resources for implementation of IHR', 6, N'C', N'6.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (16, N'Workforce surge during a public health event', 6, N'C', N'6.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (17, N'Planning for health emergencies', 7, N'C', N'7.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (18, N'Management of health emergency response', 7, N'C', N'7.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (19, N'Emergency logistic and supply chain management', 7, N'C', N'7.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (20, N'Case management', 8, N'C', N'8.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (21, N'Utilization of health services', 8, N'C', N'8.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (22, N'Continuity of essential health services', 8, N'C', N'8.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (23, N'IPC programmes', 9, N'C', N'9.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (24, N'Health care-associated infections (HCAI) surveillance', 9, N'C', N'9.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (25, N'Safe environment in health facilities', 9, N'C', N'9.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (26, N'RCCE system for emergencies', 10, N'C', N'10.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (27, N'Risk communication', 10, N'C', N'10.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (28, N'Community engagement', 10, N'C', N'10.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (29, N'Core capacity requirements at all times for PoEs (airports, ports and ground crossings)', 11, N'C', N'11.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (30, N'Public health response at points of entry', 11, N'C', N'11.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (31, N'Risk-based approach to international travel-related measures', 11, N'C', N'11.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (32, N'One Health collaborative efforts across sectors on activities to address zoonoses', 12, N'C', N'12.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (33, N'Multisectoral collaboration mechanism for food safety events', 13, N'C', N'13.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (34, N'Resources for detection and alert', 14, N'C', N'14.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (35, N'Capacity and resources', 15, N'C', N'15.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (36, N'Legal instruments', 16, N'P', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (37, N'Gender equity and equality in health emergencies', 16, N'P', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (38, N'Financial resources for IHR implementation', 17, N'P', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (39, N'Financial resources for public health emergency response', 17, N'P', N'2.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (40, N'National IHR Focal Point functions', 18, N'P', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (41, N'Multisectoral coordination mechanisms', 18, N'P', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (42, N'Strategic planning for IHR, preparedness or health security', 18, N'P', N'3.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (43, N'Multisectoral coordination on AMR', 19, N'P', N'4.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (44, N'Surveillance of AMR', 19, N'P', N'4.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (45, N'Prevention of Multidrug Resistant Organism (MDRO)', 19, N'P', N'4.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (46, N'Optimal use of antimicrobial medicines in human health', 19, N'P', N'4.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (47, N'Optimal use of antimicrobial medicines in animal health and agriculture', 19, N'P', N'4.5', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (48, N'Surveillance of zoonotic diseases', 20, N'P', N'5.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (49, N'Responding to zoonotic diseases', 20, N'P', N'5.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (50, N'Sanitary animal production practices', 20, N'P', N'5.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (51, N'Surveillance of foodborne diseases and contamination', 21, N'P', N'6.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (52, N'Response and management of food safety emergencies', 21, N'P', N'6.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (53, N'Whole-ofvernment biosafety and biosecurity system in place for all sectors (including human, animal and agriculture facilities)', 22, N'P', N'7.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (54, N'Biosafety and biosecurity training and practices in all relevant sectors (including human, animal and agriculture)', 22, N'P', N'7.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (55, N'Vaccine coverage (measles) as part of national programme', 23, N'P', N'8.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (56, N'National vaccine access and delivery', 23, N'P', N'8.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (57, N'Mass vaccination for epidemics of VPDs', 23, N'P', N'8.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (58, N'Specimen referral and transport system', 24, N'D', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (59, N'Laboratory quality system', 24, N'D', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (60, N'Laboratory testing capacity modalities', 24, N'D', N'1.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (61, N'Effective national diagnostic network', 24, N'D', N'1.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (62, N'Early warning surveillance function', 25, N'D', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (63, N'Event verification and investigation', 25, N'D', N'2.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (64, N'Analysis and information sharing', 25, N'D', N'2.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (65, N'Multisectoral workforce strategy', 26, N'D', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (66, N'Human resources for implementation of IHR', 26, N'D', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (67, N'Workforce training', 26, N'D', N'3.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (68, N'Workforce surge during a public health event', 26, N'D', N'3.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (69, N'Emergency risk and readiness assessment', 27, N'R', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (70, N'Public health emergency operations center', 27, N'R', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (71, N'Management of health emergency response', 27, N'R', N'1.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (72, N'Activation and coordination of health personnel in a public health emergency', 27, N'R', N'1.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (73, N'Emergency logistic and supply chain management', 27, N'R', N'1.5', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (74, N'Research, development and innovation', 27, N'R', N'1.6', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (75, N'Public health and security authorities (e.g., law enforcement, border control, customs) linked during a suspect or confirmed biological, chemical or radiological event', 28, N'R', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (76, N'Case management', 29, N'R', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (77, N'Utilization of EHS', 29, N'R', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (78, N'Continuity of EHS', 29, N'R', N'3.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (79, N'IPC programmes', 30, N'R', N'4.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (80, N'HCAI surveillance', 30, N'R', N'4.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (81, N'Safe environment in health facilities', 30, N'R', N'4.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (82, N'RCCE systems for emergencies', 31, N'R', N'5.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (83, N'Risk communication', 31, N'R', N'5.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (84, N'Community engagement', 31, N'R', N'5.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (85, N'Core capacity requirements at all times for PoEs', 32, N'PoE', N'1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (86, N'Public health response at PoEs', 32, N'PoE', N'2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (87, N'Risk-based approach to international travel-related measures', 32, N'PoE', N'3', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (88, N'Mechanisms established and functioning for detecting and responding to chemical events or emergencies', 33, N'CE', N'1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (89, N'Enabling environment in place for management of chemical events', 33, N'CE', N'2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (90, N'Mechanisms established and functioning for detecting and responding to radiological and nuclear emergencies', 34, N'RE', N'1', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    INSERT [dbo].[TechnicalAreaIndicators]
-        ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        (91, N'Enabling environment in place for management of radiological and nuclear emergencies', 34, N'RE', N'2', GETUTCDATE(), 0, GETUTCDATE(), 0)
-    SET IDENTITY_INSERT [dbo].[TechnicalAreaIndicators] OFF
-END
-
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM PlanStages))
-BEGIN
-
-    INSERT INTO PlanStages
-        (Stage)
-    VALUES
-        ('NotStarted'),
-        ('JustStarted'),
-        ('OnGoing'),
-        ('AdvancedStage'),
-        ('Completed')
-
-END
-
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM PlanStatuses))
-BEGIN
-
-    INSERT INTO PlanStatuses
-        (Status)
-    VALUES
-        ('Cancelled'),
-        ('Active'),
-        ('Draft'),
-        ('Complete')
-
-END
-
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM PlanTypes))
-BEGIN
-
-    INSERT INTO PlanTypes
-        ([Type])
-    VALUES
-        ('Strategic'),
-        ('Operational')
-
-END
-
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM AssessmentTypes))
-BEGIN
-
-    INSERT INTO AssessmentTypes
-        ([Type])
-    VALUES
-        ('JEE'),
-        ('ESPAR')
-END
-
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM CommonIndicators))
-BEGIN
-    INSERT INTO [dbo].[CommonIndicators]
-        ([IndicatorId], [Name])
-    VALUES
-        (1, 'Policy, legal and normative instruments' ),
-        (2, 'Gender equality in health emergencies'),
-        (3, 'Financing for IHR implementation '),
-        (4, 'Financing for public health emergency response'),
-        (5, 'National IHR Focal Point functions '),
-        (6, 'Multisectoral coordination mechanisms'),
-        (7, 'Advocacy for IHR implementation'),
-        (8, 'Multisectoral coordination on AMR'),
-        (9, 'Surveillance of AMR'),
-        (10, 'Prevention of Multi-Drug Resistant Organism (MDRO)'),
-        (11, 'Optimal use of antimicrobial medicines in human health'),
-        (12, 'Optimal use of antimicrobial medicines in animal health and agriculture'),
-        (13, 'Surveillance of zoonotic diseases'),
-        (14, 'Response to zoonotic diseases'),
-        (15, 'Sanitary animal production practices '),
-        (16, 'Surveillance of foodborne diseases and contamination'),
-        (17, 'Response and management of food safety emergencies'),
-        (18, 'Management and Hygiene Practices in Food Processing'),
-        (19, 'Whole-of-Government biosafety and biosecurity system is in place for human, animal, and agriculture facilities'),
-        (20, 'Biosafety and biosecurity training and practices in all relevant sectors (including human, animal and agriculture)'),
-        (21, 'New and experimental vaccines for epidemics of VPDs'),
-        (22, 'Mass vaccination for epidemics of VPDs'),
-        (23, 'Specimen referral and transport system'),
-        (24, 'Laboratory quality system'),
-        (25, 'Laboratory testing capacity modalities'),
-        (26, 'Effective national diagnostic network'),
-        (27, 'Early warning surveillance function'),
-        (28, 'Event verification and investigation'),
-        (29, 'Analysis and information sharing'),
-        (30, 'Human resources for implementation of IHR'),
-        (31, 'Multisectoral workforce strategy'),
-        (32, 'Workforce training'),
-        (33, 'Workforce surge during a public health event'),
-        (34, 'Emergency risk assessment'),
-        (35, 'Emergency readiness assessment'),
-        (36, 'Planning for health emergencies'),
-        (37, 'Public Health Emergency Operations Centre (PHEOC)'),
-        (38, 'Management of health emergency response'),
-        (39, 'Activation and coordination of health personel in a public health emergency'),
-        (40, 'Emergency logistic and supply chain management'),
-        (41, 'Research, development and innovation'),
-        (42, 'Public Health and Security Authorities, (e.g. Law Enforcement, Border Control, Customs) are linked during a suspect or confirmed biological event'),
-        (43, 'Case management'),
-        (44, 'Utilization of health services'),
-        (45, 'Continuity of essential health services (EHS)'),
-        (46, 'IPC programmes'),
-        (47, 'HCAI surveillance'),
-        (48, 'Safe environment in health facilities'),
-        (49, 'RCCE system for emergencies'),
-        (50, 'Coordination of risk communication and infodemic management is effective'),
-        (51, 'Effective communication with communities and infodemic resilience'),
-        (52, 'Community engagement'),
-        (53, 'Core capacity requirements at all times for PoEs (airports, ports and ground crossings)'),
-        (54, 'Public health response at points of entry'),
-        (55, 'Risk-based approach to international travel-related measures '),
-        (56, 'Mechanisms established and functioning for detecting and responding to chemical events or emergencies'),
-        (57, 'Enabling environment in place for management of chemical events'),
-        (58, 'Mechanisms established and functioning for detecting and responding to radiological and nuclear emergencies'),
-        (59, 'Enabling environment in place for management of radiological and nuclear emergencies'),
-        (60, 'Governance and leadership mechanism for health emergency is in place.'),
-        (61, 'Systematic monitoring and evaluation (M&E) of health security for action is in place')
-END
-
-IF (NOT EXISTS (SELECT TOP 1
-    1
-FROM CommonIndicatorsMapping))
-BEGIN
-    INSERT INTO [dbo].[CommonIndicatorsMapping]
-        ([CommonIndicatorId], [IndicatorCode], [IndicatorId], [Type])
-    VALUES
-        (1, 'P', '1.1', 1),
-        (1, 'C', '1.1', 2),
-        (1, NULL, '1.1', 3),
-        (1, 'P', '1.1', 4),
-        (2, 'P', '1.2', 1),
-        (2, 'C', '1.2', 2),
-        (2, 'P', '1.2', 4),
-        (3, 'P', '2.1', 1),
-        (3, 'C', '3.1', 2),
-        (3, NULL, '1.2', 3),
-        (3, 'P', '2.1', 4),
-        (4, 'P', '2.2', 1),
-        (4, 'C', '3.2', 2),
-        (4, NULL, '1.3', 3),
-        (4, 'P', '2.2', 4),
-        (5, 'P', '3.1', 1),
-        (5, 'C', '2.1', 2),
-        (5, NULL, '2.1', 3),
-        (5, 'P', '3.1', 4),
-        (6, 'P', '3.2', 1),
-        (6, 'C', '2.2', 2),
-        (6, NULL, '2.2', 3),
-        (6, 'P', '3.2', 4),
-        (7, 'P', '3.3', 1),
-        (7, 'C', '2.3', 2),
-        (7, 'P', '3.3', 4),
-        (8, 'P', '4.1', 1),
-        (8, NULL, '3.1', 3),
-        (8, 'P', '4.1', 4),
-        (9, 'P', '4.2', 1),
-        (9, NULL, '3.2', 3),
-        (9, 'P', '4.2', 4),      
-        (10, 'P', '4.3', 1),
-        (10, NULL, '3.3', 3),
-        (10, 'P', '4.3', 4),
-        (11, 'P', '4.4', 1),
-        (11, NULL, '3.4', 3),
-        (11, 'P', '4.4', 4),
-        (12, 'P', '4.5', 1),
-        (12, 'P', '4.5', 4),
-        (13, 'P', '5.1', 1),
-        (13, 'C', '12.1', 2),
-        (13, NULL, '4.1', 3),
-        (13, 'P', '5.1', 4),
-        (14, 'P', '5.2', 1),
-        (14, NULL, '4.2', 3),
-        (14, 'P', '5.2', 4),
-        (15, 'P', '5.3', 1),
-        (15, 'P', '5.3', 4),
-        (16, 'P', '6.1', 1),
-        (16, 'C', '13.1', 2),
-        (16, NULL, '5.1', 3),
-        (16, 'P', '6.1', 4),
-        (17, 'P', '6.2', 1),
-        (17, NULL, '5.2', 3),
-        (17, 'P', '6.2', 4),
-        (18, 'P', '6.3', 1),
-        (18, 'P', '6.3', 4),
-        (19, 'P', '7.1', 1),
-        (19, 'C', '4.2', 2),
-        (19, NULL, '8.1', 3),
-        (19, 'P', '7.1', 4),
-        (20, 'P', '7.2', 1),
-        (20, NULL, '8.2', 3),
-        (20, 'P', '7.2', 4),
-        (21, 'P', '8.1', 1),
-        (21, NULL, '6.1', 3),
-        (21, 'P', '8.1', 4),
-        (22, 'P', '8.2', 1),
-        (22, NULL, '6.2', 3),
-        (22, 'P', '8.2', 4),
-        (23, 'D', '1.1', 1),
-        (23, 'C', '4.1', 2),
-        (23, NULL, '7.2', 3),
-        (23, 'D', '1.1', 4),
-        (24, 'D', '1.2', 1),
-        (24, 'C', '4.3', 2),
-        (24, 'D', '1.2', 4),
-        (25, 'D', '1.3', 1),
-        (25, 'C', '4.4', 2),
-        (25, NULL, '7.1', 3),
-        (25, 'D', '1.3', 4),
-        (26, 'D', '1.4', 1),
-        (26, 'C', '4.5', 2),
-        (26, NULL, '7.3', 3),
-        (26, 'D', '1.4', 4),
-        (27, 'D', '2.1', 1),
-        (27, 'C', '5.1', 2),
-        (27, NULL, '9.1', 3),
-        (27, 'D', '2.1', 4),
-        (28, 'D', '2.2', 1),
-        (28, 'C', '5.2', 2),
-        (28, NULL, '9.2', 3),
-        (28, 'D', '2.2', 4),
-        (29, 'D', '2.3', 1),
-        (29, NULL, '9.3', 3),
-        (29, 'D', '2.3', 4),
-        (30, 'D', '3.2', 1),
-        (30, 'C', '6.1', 2),
-        (30, NULL, '10.2', 3),
-        (30, 'D', '3.2', 4),
-        (31, 'D', '3.1', 1),
-        (31, NULL, '10.1', 3),
-        (31, 'D', '3.1', 4),
-        (32, 'D', '3.3', 1),
-        (32, NULL, '10.3', 3),
-        (32, 'D', '3.3', 4),
-        (33, 'D', '3.4', 1),
-        (33, 'C', '6.2', 2),
-        (33, NULL, '10.4', 3),
-        (33, 'D', '3.4', 4),
-        (34, 'R', '1.1', 1),
-        (34, NULL, '20.1', 3),
-        (34, 'R', '1.1', 4),
-        (35, 'R', '1.2', 1),
-        (35, 'C', '7.1', 2),
-        (35, NULL, '11.1', 3),
-        (35, 'R', '1.2', 4),
-        (36, 'R', '1.3', 1),
-        (36, 'C', '7.2', 2),
-        (36, null, '11.2', 3),
-        (36, 'R', '1.3', 4),
-        (37, 'R', '1.4', 1),
-        (37 , null, '12.1', 3),
-        (37, 'R', '1.4', 4),
-        (38, 'R', '1.5', 1),
-        (38, null, '12.2', 3),
-        (38, 'R', '1.5', 4),
-        (39, 'R', '1.6', 1),
-        (39, null, '12.3', 3),
-        (39, 'R', '1.6', 4),
-        (40, 'R', '1.7', 1),
-        (40, 'C', '7.3', 2),
-        (40, null, '21.1', 3),
-        (40, 'R', '1.7', 4),
-        (41, 'R', '1.8', 1),
-        (41, null, '24.1', 3),
-        (41, 'R', '1.8', 4),
-        (42, 'R', '2.1', 1),
-        (42, null, '13.1', 3),
-        (42, 'R', '2.1', 4),
-        (43, 'R', '3.1', 1),
-        (43, 'C', '8.1', 2),
-        (43, null, '14.1', 3),
-        (43, 'R', '3.1', 4),
-        (44, 'R', '3.2', 1),
-        (44, 'C', '8.2', 2),
-        (44, null, '14.2', 3),
-        (44, 'R', '3.2', 4),
-        (45, 'R', '3.3', 1),
-        (45, 'C', '8.3', 2),
-        (45, null, '14.3', 3),
-        (45, 'R', '3.3', 4),
-        (46, 'R', '4.1', 1),
-        (46, 'C', '9.1', 2),
-        (46, 'R', '4.1', 4),
-        (47, 'R', '4.2', 1),
-        (47, 'C', '9.2', 2),
-        (47, 'R', '4.2', 4),
-        (48, 'R', '4.3', 1),
-        (48, 'C', '9.3', 2),
-        (48, 'R', '4.3', 4),
-        (49, 'R', '5.1', 1),
-        (49, 'C', '10.1', 2),
-        (49, null, '15.1', 3),
-        (49, 'R', '5.1', 4),
-        (50, 'R', '5.2', 1),
-        (50, 'C', '10.2', 2),
-        (50, null, '15.2', 3),
-        (50, 'R', '5.2', 4),
-        (51, null, '15.3', 3),
-        (52, 'R', '5.3', 1),
-        (52, 'C', '10.3', 2),
-        (52, null, '22.1', 3),
-        (52, 'R', '5.3', 4),
-        (53, 'PoE', '1', 1),
-        (53, 'C', '11.1', 2),
-        (53, null, '16.1', 3),
-        (53, 'PoE', '1', 4),
-        (54, 'PoE', '2', 1),
-        (54, 'C', '11.2', 2),
-        (54, null, '16.2', 3),
-        (54, 'PoE', '2', 4),
-        (55, 'PoE', '3', 1),
-        (55, 'C', '11.3', 2),
-        (55, 'PoE', '3', 4),
-        (56, 'CE', '1', 1),
-        (56, 'C', '14.1', 2),
-        (56, null, '17.1', 3),
-        (56, 'CE', '1', 4),
-        (57, 'CE', '2', 1),
-        (57, 'CE', '2', 4),
-        (58, 'RE', '1', 1),
-        (58, 'C', '15.1', 2),
-        (58, null, '18.1', 3),
-        (58, 'RE', '1', 4),
-        (59, 'RE', '2', 1),
-        (59, 'RE', '2', 4),
-        (60, null, '19.1', 3),
-        (61, null, '23.1', 3)
-END
-
-IF( NOT EXISTS (SELECT TOP 1
-    1
-FROM StrategicActionImpacts))
-BEGIN
-    INSERT INTO StrategicActionImpacts
-        (Impact)
-    VALUES
-        ('High'),
-        ('Medium'),
-        ('Low')
-
-END
-
-IF( NOT EXISTS (SELECT TOP 1
-    1
-FROM StrategicActionFeasibility))
-BEGIN
-    INSERT INTO StrategicActionFeasibility
-        (Feasibility)
-    VALUES
-        ('Easy'),
-        ('Medium'),
-        ('Difficult')
-
-END
-
-IF( NOT EXISTS (SELECT TOP 1
-    1
-FROM StrategicActionPriorities))
-BEGIN
-    INSERT INTO StrategicActionPriorities
-        (Priority)
-    VALUES
-        ('Very High'),
-        ('High'),
-        ('Medium'),
-        ('Low'),
-        ('Very Low')
-END
-
-TRUNCATE TABLE [dbo].[Configurations]
-
-INSERT INTO [dbo].[Configurations]
-    ([Key], [Value])
-VALUES
-    ('TenantId', 'f610c0b7-bd24-4b39-810b-3dc280afb590'),
-    ('ApplicationVersion', '0.0.1'),
-    ('MaxStrategicPlanAllowed', '2'),
-    ('TechnicalAreaExcelColumn', 'A'),
-    ('IndicatorExcelColumn', 'B'),
-    ('ValidExcelExtensions', '.xls,.xlsx'),
-    ('AuthTokenURL', 'https://login.microsoftonline.com/f610c0b7-bd24-4b39-810b-3dc280afb590/oauth2/token'),
-    ('JEEClientId', '98c4c8fc-3833-45fb-89f3-fea84a14595b'),
-    ('JEEClientSecret', 'TDU8Q~KXsNCqOdrCDY4Bzq2z6LP896wmOoB2qcQd'),
-    ('JEEAuthTokenParameterName', 'access_token'),
-    ('JEEScoreUrl', 'https://jeereports-uat.who.int/api/JeeReportsApi/NOK/JeeMissions/scores'),
-    ('JEERecommendationUrl', 'https://jeereports-uat.who.int/api/JeeReportsApi/NOK/JeeMissions/recommendations'),
-    ('SPARClientId', '9038bfe4-467a-460d-90b6-ed54898233cd'),
-    ('SPARClientSecret', 'v4X8Q~VjgKMCDsKitBHzhgYSTwD9clxKZcdLCaWg'),
-    ('SPARScope', 'api://9038bfe4-467a-460d-90b6-ed54898233cd'),
-    ('SPARXAPIKey', '2CB22047-C860-4CE6-91EB-9B084359A909'),
-    ('SPARSubmissionURL', 'Https://extranet.who.int/e-spar/api/GetSubmissionV2')
+-- IF (NOT EXISTS (SELECT TOP 1 1 FROM TechnicalAreas))
+-- BEGIN
+--     INSERT [dbo].[TechnicalAreas] ([Name], [AreaCode], [AreaCodeId], [IsActive], [SourceId], [CountryId], [CommonTechnicalAreaId], [IsCustomTechnicalArea], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])    
+--     VALUES 
+--         (N'IHR Coordination, National IHR Focal Point functions and advocacy', N'C', N'2', 1, 2, NULL, 7, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Policy, Legal and normative Instruments to implement IHR', N'C', N'1', 1, 2, NULL, 11, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Financing', N'C', N'3', 1, 2, NULL, 2, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Laboratory', N'C', N'4', 1, 2, NULL, 9, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Surveillance', N'C', N'5', 1, 2, NULL, 14, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Human resources', N'C', N'6', 1, 2, NULL, 6, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Health emergency management', N'C', N'7', 1, 2, NULL, 4, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Health services provision', N'C', N'8', 1, 2, NULL, 5, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Infection prevention and control (IPC)', N'C', N'9', 1, 2, NULL, 8, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Risk communication and community engagement (RCCE)', N'C', N'10', 1, 2, NULL, 13, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Points of entry (PoEs) and border health', N'C', N'11', 1, 2, NULL, 10, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Zoonotic diseases', N'C', N'12', 1, 2, NULL, 15, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Food safety', N'C', N'13', 1, 2, NULL, 3, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Chemical events', N'C', N'14', 1, 2, NULL, 1, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Radiation emergencies', N'C', N'15', 1, 2, NULL, 12, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Legal instruments', N'P', N'1', 1, 1, NULL, 11, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Financing', N'P', N'2', 1, 1, NULL, 2, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'IHR coordination, national IHR Focal Point functions and advocacy', N'P', N'3', 1, 1, NULL, 7, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Antimicrobial resistance (AMR)', N'P', N'4', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Zoonotic disease', N'P', N'5', 1, 1, NULL, 15, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Food safety', N'P', N'6', 1, 1, NULL, 3, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Biosafety and biosecurity', N'P', N'7', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Immunization', N'P', N'8', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'National laboratory system', N'D', N'1', 1, 1, NULL, 9, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Surveillance', N'D', N'2', 1, 1, NULL, 14, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Human resources', N'D', N'3', 1, 1, NULL, 6, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Health emergency management', N'R', N'1', 1, 1, NULL, 4, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Linking public health and security authorities', N'R', N'2', 1, 1, NULL, NULL, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Health services provision', N'R', N'3', 1, 1, NULL, 5, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Infection prevention and control (IPC)', N'R', N'4', 1, 1, NULL, 8, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Risk communication and community engagement (RCCE)', N'R', N'5', 1, 1, NULL, 13, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Points of entry and border health', N'PoE', N'', 1, 1, NULL, 10, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Chemical events', N'CE', N'', 1, 1, NULL, 1, 0, GETUTCDATE(), 0, GETUTCDATE(), 0),
+--         (N'Radiation emergencies', N'RE', N'', 1, 1, NULL, 12, 0, GETUTCDATE(), 0, GETUTCDATE(), 0)
+-- END
 
 
-IF NOT EXISTS (SELECT TOP 1
-    1
-FROM [dbo].[Currencies])
-BEGIN
-    INSERT INTO [dbo].[Currencies]
-        ([Code], [Sign], [IsDefault], [ConversionFactor], [Description], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
-    VALUES
-        ('USD', '$', 1, 1, 'United States Dollar', GETUTCDATE(), 1, GETUTCDATE(), 1)
-END
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM TechnicalAreaIndicators))
+-- BEGIN
 
--- Add permissions if not exist.
-IF NOT EXISTS (SELECT TOP 1
-    1
-FROM [dbo].[Permissions])
-BEGIN
-    INSERT INTO [dbo].[Permissions]
-        ([Activity], [MinimalRoleId])
-    VALUES
-        ('InviteUser', 5),
-        ('ApproveUserAccount', 6),
-        ('UpdateUserAccount', 6),
-        ('CreatePlan', 3),
-        ('ViewPlan', 2),
-        ('UpdatePlan', 3),
-        ('DownloadPlan', 3),
-        ('UploadPlan', 3),
-        ('DeletePlan', 3),
-        ('ActivatePlan', 3),
-        ('UpdatePlanVisibility', 5),
-        ('AddOrEditAction', 5),
-        ('ApproveNewAction', 5),
-        ('UpdateStrategicAction', 5),
-        ('UpdateImplementationStatusOfStrategicAction', 3),
-        ('UpdateActionDetails', 4),
-        ('CompleteOrReviewPlan', 5),
-        ('CancelPlan', 5),
-        ('ClonePlan', 3),
-        ('SummaryDashboards', 1),
-        ('ViewOwnCountryActivePlanReport', 3)
-END
+--     SET IDENTITY_INSERT [dbo].[TechnicalAreaIndicators] ON
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (1, N'Policy, legal and normative instruments', 1, N'C', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (2, N'Gender Equality in health emergencies', 1, N'C', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (3, N'National IHR Focal Point functions', 2, N'C', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (4, N'Multisectoral IHR coordination mechanisms', 2, N'C', N'2.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (5, N'Advocacy for IHR implementation', 2, N'C', N'2.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (6, N'Financing for IHR implementation', 3, N'C', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (7, N'Financing for Public Health Emergency Response', 3, N'C', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (8, N'Specimen referral and transport system', 4, N'C', N'4.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (9, N'Implementation of a laboratory biosafety and biosecurity regime', 4, N'C', N'4.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (10, N'Laboratory quality system', 4, N'C', N'4.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (11, N'Laboratory testing capacity modalities', 4, N'C', N'4.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (12, N'Effective national diagnostic network', 4, N'C', N'4.5', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (13, N'Early warning surveillance function', 5, N'C', N'5.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (14, N'Event management (i.e., verification, investigation, analysis, and dissemination of information)', 5, N'C', N'5.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (15, N'Human resources for implementation of IHR', 6, N'C', N'6.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (16, N'Workforce surge during a public health event', 6, N'C', N'6.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (17, N'Planning for health emergencies', 7, N'C', N'7.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (18, N'Management of health emergency response', 7, N'C', N'7.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (19, N'Emergency logistic and supply chain management', 7, N'C', N'7.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (20, N'Case management', 8, N'C', N'8.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (21, N'Utilization of health services', 8, N'C', N'8.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (22, N'Continuity of essential health services', 8, N'C', N'8.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (23, N'IPC programmes', 9, N'C', N'9.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (24, N'Health care-associated infections (HCAI) surveillance', 9, N'C', N'9.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (25, N'Safe environment in health facilities', 9, N'C', N'9.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (26, N'RCCE system for emergencies', 10, N'C', N'10.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (27, N'Risk communication', 10, N'C', N'10.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (28, N'Community engagement', 10, N'C', N'10.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (29, N'Core capacity requirements at all times for PoEs (airports, ports and ground crossings)', 11, N'C', N'11.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (30, N'Public health response at points of entry', 11, N'C', N'11.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (31, N'Risk-based approach to international travel-related measures', 11, N'C', N'11.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (32, N'One Health collaborative efforts across sectors on activities to address zoonoses', 12, N'C', N'12.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (33, N'Multisectoral collaboration mechanism for food safety events', 13, N'C', N'13.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (34, N'Resources for detection and alert', 14, N'C', N'14.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (35, N'Capacity and resources', 15, N'C', N'15.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (36, N'Legal instruments', 16, N'P', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (37, N'Gender equity and equality in health emergencies', 16, N'P', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (38, N'Financial resources for IHR implementation', 17, N'P', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (39, N'Financial resources for public health emergency response', 17, N'P', N'2.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (40, N'National IHR Focal Point functions', 18, N'P', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (41, N'Multisectoral coordination mechanisms', 18, N'P', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (42, N'Strategic planning for IHR, preparedness or health security', 18, N'P', N'3.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (43, N'Multisectoral coordination on AMR', 19, N'P', N'4.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (44, N'Surveillance of AMR', 19, N'P', N'4.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (45, N'Prevention of Multidrug Resistant Organism (MDRO)', 19, N'P', N'4.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (46, N'Optimal use of antimicrobial medicines in human health', 19, N'P', N'4.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (47, N'Optimal use of antimicrobial medicines in animal health and agriculture', 19, N'P', N'4.5', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (48, N'Surveillance of zoonotic diseases', 20, N'P', N'5.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (49, N'Responding to zoonotic diseases', 20, N'P', N'5.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (50, N'Sanitary animal production practices', 20, N'P', N'5.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (51, N'Surveillance of foodborne diseases and contamination', 21, N'P', N'6.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (52, N'Response and management of food safety emergencies', 21, N'P', N'6.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (53, N'Whole-ofvernment biosafety and biosecurity system in place for all sectors (including human, animal and agriculture facilities)', 22, N'P', N'7.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (54, N'Biosafety and biosecurity training and practices in all relevant sectors (including human, animal and agriculture)', 22, N'P', N'7.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (55, N'Vaccine coverage (measles) as part of national programme', 23, N'P', N'8.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (56, N'National vaccine access and delivery', 23, N'P', N'8.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (57, N'Mass vaccination for epidemics of VPDs', 23, N'P', N'8.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (58, N'Specimen referral and transport system', 24, N'D', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (59, N'Laboratory quality system', 24, N'D', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (60, N'Laboratory testing capacity modalities', 24, N'D', N'1.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (61, N'Effective national diagnostic network', 24, N'D', N'1.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (62, N'Early warning surveillance function', 25, N'D', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (63, N'Event verification and investigation', 25, N'D', N'2.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (64, N'Analysis and information sharing', 25, N'D', N'2.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (65, N'Multisectoral workforce strategy', 26, N'D', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (66, N'Human resources for implementation of IHR', 26, N'D', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (67, N'Workforce training', 26, N'D', N'3.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (68, N'Workforce surge during a public health event', 26, N'D', N'3.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (69, N'Emergency risk and readiness assessment', 27, N'R', N'1.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (70, N'Public health emergency operations center', 27, N'R', N'1.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (71, N'Management of health emergency response', 27, N'R', N'1.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (72, N'Activation and coordination of health personnel in a public health emergency', 27, N'R', N'1.4', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (73, N'Emergency logistic and supply chain management', 27, N'R', N'1.5', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (74, N'Research, development and innovation', 27, N'R', N'1.6', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (75, N'Public health and security authorities (e.g., law enforcement, border control, customs) linked during a suspect or confirmed biological, chemical or radiological event', 28, N'R', N'2.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (76, N'Case management', 29, N'R', N'3.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (77, N'Utilization of EHS', 29, N'R', N'3.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (78, N'Continuity of EHS', 29, N'R', N'3.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (79, N'IPC programmes', 30, N'R', N'4.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (80, N'HCAI surveillance', 30, N'R', N'4.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (81, N'Safe environment in health facilities', 30, N'R', N'4.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (82, N'RCCE systems for emergencies', 31, N'R', N'5.1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (83, N'Risk communication', 31, N'R', N'5.2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (84, N'Community engagement', 31, N'R', N'5.3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (85, N'Core capacity requirements at all times for PoEs', 32, N'PoE', N'1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (86, N'Public health response at PoEs', 32, N'PoE', N'2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (87, N'Risk-based approach to international travel-related measures', 32, N'PoE', N'3', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (88, N'Mechanisms established and functioning for detecting and responding to chemical events or emergencies', 33, N'CE', N'1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (89, N'Enabling environment in place for management of chemical events', 33, N'CE', N'2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (90, N'Mechanisms established and functioning for detecting and responding to radiological and nuclear emergencies', 34, N'RE', N'1', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     INSERT [dbo].[TechnicalAreaIndicators]
+--         ([TechnicalAreaIndicatorId], [Name], [TechnicalAreaId], [IndicatorCode], [IndicatorCodeId], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         (91, N'Enabling environment in place for management of radiological and nuclear emergencies', 34, N'RE', N'2', GETUTCDATE(), 0, GETUTCDATE(), 0)
+--     SET IDENTITY_INSERT [dbo].[TechnicalAreaIndicators] OFF
+-- END
+
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM PlanStages))
+-- BEGIN
+
+--     INSERT INTO PlanStages
+--         (Stage)
+--     VALUES
+--         ('NotStarted'),
+--         ('JustStarted'),
+--         ('OnGoing'),
+--         ('AdvancedStage'),
+--         ('Completed')
+
+-- END
+
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM PlanStatuses))
+-- BEGIN
+
+--     INSERT INTO PlanStatuses
+--         (Status)
+--     VALUES
+--         ('Cancelled'),
+--         ('Active'),
+--         ('Draft'),
+--         ('Complete')
+
+-- END
+
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM PlanTypes))
+-- BEGIN
+
+--     INSERT INTO PlanTypes
+--         ([Type])
+--     VALUES
+--         ('Strategic'),
+--         ('Operational')
+
+-- END
+
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM AssessmentTypes))
+-- BEGIN
+
+--     INSERT INTO AssessmentTypes
+--         ([Type])
+--     VALUES
+--         ('JEE'),
+--         ('ESPAR')
+-- END
+
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM CommonIndicators))
+-- BEGIN
+--     INSERT INTO [dbo].[CommonIndicators]
+--         ([IndicatorId], [Name])
+--     VALUES
+--         (1, 'Policy, legal and normative instruments' ),
+--         (2, 'Gender equality in health emergencies'),
+--         (3, 'Financing for IHR implementation '),
+--         (4, 'Financing for public health emergency response'),
+--         (5, 'National IHR Focal Point functions '),
+--         (6, 'Multisectoral coordination mechanisms'),
+--         (7, 'Advocacy for IHR implementation'),
+--         (8, 'Multisectoral coordination on AMR'),
+--         (9, 'Surveillance of AMR'),
+--         (10, 'Prevention of Multi-Drug Resistant Organism (MDRO)'),
+--         (11, 'Optimal use of antimicrobial medicines in human health'),
+--         (12, 'Optimal use of antimicrobial medicines in animal health and agriculture'),
+--         (13, 'Surveillance of zoonotic diseases'),
+--         (14, 'Response to zoonotic diseases'),
+--         (15, 'Sanitary animal production practices '),
+--         (16, 'Surveillance of foodborne diseases and contamination'),
+--         (17, 'Response and management of food safety emergencies'),
+--         (18, 'Management and Hygiene Practices in Food Processing'),
+--         (19, 'Whole-of-Government biosafety and biosecurity system is in place for human, animal, and agriculture facilities'),
+--         (20, 'Biosafety and biosecurity training and practices in all relevant sectors (including human, animal and agriculture)'),
+--         (21, 'New and experimental vaccines for epidemics of VPDs'),
+--         (22, 'Mass vaccination for epidemics of VPDs'),
+--         (23, 'Specimen referral and transport system'),
+--         (24, 'Laboratory quality system'),
+--         (25, 'Laboratory testing capacity modalities'),
+--         (26, 'Effective national diagnostic network'),
+--         (27, 'Early warning surveillance function'),
+--         (28, 'Event verification and investigation'),
+--         (29, 'Analysis and information sharing'),
+--         (30, 'Human resources for implementation of IHR'),
+--         (31, 'Multisectoral workforce strategy'),
+--         (32, 'Workforce training'),
+--         (33, 'Workforce surge during a public health event'),
+--         (34, 'Emergency risk assessment'),
+--         (35, 'Emergency readiness assessment'),
+--         (36, 'Planning for health emergencies'),
+--         (37, 'Public Health Emergency Operations Centre (PHEOC)'),
+--         (38, 'Management of health emergency response'),
+--         (39, 'Activation and coordination of health personel in a public health emergency'),
+--         (40, 'Emergency logistic and supply chain management'),
+--         (41, 'Research, development and innovation'),
+--         (42, 'Public Health and Security Authorities, (e.g. Law Enforcement, Border Control, Customs) are linked during a suspect or confirmed biological event'),
+--         (43, 'Case management'),
+--         (44, 'Utilization of health services'),
+--         (45, 'Continuity of essential health services (EHS)'),
+--         (46, 'IPC programmes'),
+--         (47, 'HCAI surveillance'),
+--         (48, 'Safe environment in health facilities'),
+--         (49, 'RCCE system for emergencies'),
+--         (50, 'Coordination of risk communication and infodemic management is effective'),
+--         (51, 'Effective communication with communities and infodemic resilience'),
+--         (52, 'Community engagement'),
+--         (53, 'Core capacity requirements at all times for PoEs (airports, ports and ground crossings)'),
+--         (54, 'Public health response at points of entry'),
+--         (55, 'Risk-based approach to international travel-related measures '),
+--         (56, 'Mechanisms established and functioning for detecting and responding to chemical events or emergencies'),
+--         (57, 'Enabling environment in place for management of chemical events'),
+--         (58, 'Mechanisms established and functioning for detecting and responding to radiological and nuclear emergencies'),
+--         (59, 'Enabling environment in place for management of radiological and nuclear emergencies'),
+--         (60, 'Governance and leadership mechanism for health emergency is in place.'),
+--         (61, 'Systematic monitoring and evaluation (M&E) of health security for action is in place')
+-- END
+
+-- IF (NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM CommonIndicatorsMapping))
+-- BEGIN
+--     INSERT INTO [dbo].[CommonIndicatorsMapping]
+--         ([CommonIndicatorId], [IndicatorCode], [IndicatorId], [Type])
+--     VALUES
+--         (1, 'P', '1.1', 1),
+--         (1, 'C', '1.1', 2),
+--         (1, NULL, '1.1', 3),
+--         (1, 'P', '1.1', 4),
+--         (2, 'P', '1.2', 1),
+--         (2, 'C', '1.2', 2),
+--         (2, 'P', '1.2', 4),
+--         (3, 'P', '2.1', 1),
+--         (3, 'C', '3.1', 2),
+--         (3, NULL, '1.2', 3),
+--         (3, 'P', '2.1', 4),
+--         (4, 'P', '2.2', 1),
+--         (4, 'C', '3.2', 2),
+--         (4, NULL, '1.3', 3),
+--         (4, 'P', '2.2', 4),
+--         (5, 'P', '3.1', 1),
+--         (5, 'C', '2.1', 2),
+--         (5, NULL, '2.1', 3),
+--         (5, 'P', '3.1', 4),
+--         (6, 'P', '3.2', 1),
+--         (6, 'C', '2.2', 2),
+--         (6, NULL, '2.2', 3),
+--         (6, 'P', '3.2', 4),
+--         (7, 'P', '3.3', 1),
+--         (7, 'C', '2.3', 2),
+--         (7, 'P', '3.3', 4),
+--         (8, 'P', '4.1', 1),
+--         (8, NULL, '3.1', 3),
+--         (8, 'P', '4.1', 4),
+--         (9, 'P', '4.2', 1),
+--         (9, NULL, '3.2', 3),
+--         (9, 'P', '4.2', 4),      
+--         (10, 'P', '4.3', 1),
+--         (10, NULL, '3.3', 3),
+--         (10, 'P', '4.3', 4),
+--         (11, 'P', '4.4', 1),
+--         (11, NULL, '3.4', 3),
+--         (11, 'P', '4.4', 4),
+--         (12, 'P', '4.5', 1),
+--         (12, 'P', '4.5', 4),
+--         (13, 'P', '5.1', 1),
+--         (13, 'C', '12.1', 2),
+--         (13, NULL, '4.1', 3),
+--         (13, 'P', '5.1', 4),
+--         (14, 'P', '5.2', 1),
+--         (14, NULL, '4.2', 3),
+--         (14, 'P', '5.2', 4),
+--         (15, 'P', '5.3', 1),
+--         (15, 'P', '5.3', 4),
+--         (16, 'P', '6.1', 1),
+--         (16, 'C', '13.1', 2),
+--         (16, NULL, '5.1', 3),
+--         (16, 'P', '6.1', 4),
+--         (17, 'P', '6.2', 1),
+--         (17, NULL, '5.2', 3),
+--         (17, 'P', '6.2', 4),
+--         (18, 'P', '6.3', 1),
+--         (18, 'P', '6.3', 4),
+--         (19, 'P', '7.1', 1),
+--         (19, 'C', '4.2', 2),
+--         (19, NULL, '8.1', 3),
+--         (19, 'P', '7.1', 4),
+--         (20, 'P', '7.2', 1),
+--         (20, NULL, '8.2', 3),
+--         (20, 'P', '7.2', 4),
+--         (21, 'P', '8.1', 1),
+--         (21, NULL, '6.1', 3),
+--         (21, 'P', '8.1', 4),
+--         (22, 'P', '8.2', 1),
+--         (22, NULL, '6.2', 3),
+--         (22, 'P', '8.2', 4),
+--         (23, 'D', '1.1', 1),
+--         (23, 'C', '4.1', 2),
+--         (23, NULL, '7.2', 3),
+--         (23, 'D', '1.1', 4),
+--         (24, 'D', '1.2', 1),
+--         (24, 'C', '4.3', 2),
+--         (24, 'D', '1.2', 4),
+--         (25, 'D', '1.3', 1),
+--         (25, 'C', '4.4', 2),
+--         (25, NULL, '7.1', 3),
+--         (25, 'D', '1.3', 4),
+--         (26, 'D', '1.4', 1),
+--         (26, 'C', '4.5', 2),
+--         (26, NULL, '7.3', 3),
+--         (26, 'D', '1.4', 4),
+--         (27, 'D', '2.1', 1),
+--         (27, 'C', '5.1', 2),
+--         (27, NULL, '9.1', 3),
+--         (27, 'D', '2.1', 4),
+--         (28, 'D', '2.2', 1),
+--         (28, 'C', '5.2', 2),
+--         (28, NULL, '9.2', 3),
+--         (28, 'D', '2.2', 4),
+--         (29, 'D', '2.3', 1),
+--         (29, NULL, '9.3', 3),
+--         (29, 'D', '2.3', 4),
+--         (30, 'D', '3.2', 1),
+--         (30, 'C', '6.1', 2),
+--         (30, NULL, '10.2', 3),
+--         (30, 'D', '3.2', 4),
+--         (31, 'D', '3.1', 1),
+--         (31, NULL, '10.1', 3),
+--         (31, 'D', '3.1', 4),
+--         (32, 'D', '3.3', 1),
+--         (32, NULL, '10.3', 3),
+--         (32, 'D', '3.3', 4),
+--         (33, 'D', '3.4', 1),
+--         (33, 'C', '6.2', 2),
+--         (33, NULL, '10.4', 3),
+--         (33, 'D', '3.4', 4),
+--         (34, 'R', '1.1', 1),
+--         (34, NULL, '20.1', 3),
+--         (34, 'R', '1.1', 4),
+--         (35, 'R', '1.2', 1),
+--         (35, 'C', '7.1', 2),
+--         (35, NULL, '11.1', 3),
+--         (35, 'R', '1.2', 4),
+--         (36, 'R', '1.3', 1),
+--         (36, 'C', '7.2', 2),
+--         (36, null, '11.2', 3),
+--         (36, 'R', '1.3', 4),
+--         (37, 'R', '1.4', 1),
+--         (37 , null, '12.1', 3),
+--         (37, 'R', '1.4', 4),
+--         (38, 'R', '1.5', 1),
+--         (38, null, '12.2', 3),
+--         (38, 'R', '1.5', 4),
+--         (39, 'R', '1.6', 1),
+--         (39, null, '12.3', 3),
+--         (39, 'R', '1.6', 4),
+--         (40, 'R', '1.7', 1),
+--         (40, 'C', '7.3', 2),
+--         (40, null, '21.1', 3),
+--         (40, 'R', '1.7', 4),
+--         (41, 'R', '1.8', 1),
+--         (41, null, '24.1', 3),
+--         (41, 'R', '1.8', 4),
+--         (42, 'R', '2.1', 1),
+--         (42, null, '13.1', 3),
+--         (42, 'R', '2.1', 4),
+--         (43, 'R', '3.1', 1),
+--         (43, 'C', '8.1', 2),
+--         (43, null, '14.1', 3),
+--         (43, 'R', '3.1', 4),
+--         (44, 'R', '3.2', 1),
+--         (44, 'C', '8.2', 2),
+--         (44, null, '14.2', 3),
+--         (44, 'R', '3.2', 4),
+--         (45, 'R', '3.3', 1),
+--         (45, 'C', '8.3', 2),
+--         (45, null, '14.3', 3),
+--         (45, 'R', '3.3', 4),
+--         (46, 'R', '4.1', 1),
+--         (46, 'C', '9.1', 2),
+--         (46, 'R', '4.1', 4),
+--         (47, 'R', '4.2', 1),
+--         (47, 'C', '9.2', 2),
+--         (47, 'R', '4.2', 4),
+--         (48, 'R', '4.3', 1),
+--         (48, 'C', '9.3', 2),
+--         (48, 'R', '4.3', 4),
+--         (49, 'R', '5.1', 1),
+--         (49, 'C', '10.1', 2),
+--         (49, null, '15.1', 3),
+--         (49, 'R', '5.1', 4),
+--         (50, 'R', '5.2', 1),
+--         (50, 'C', '10.2', 2),
+--         (50, null, '15.2', 3),
+--         (50, 'R', '5.2', 4),
+--         (51, null, '15.3', 3),
+--         (52, 'R', '5.3', 1),
+--         (52, 'C', '10.3', 2),
+--         (52, null, '22.1', 3),
+--         (52, 'R', '5.3', 4),
+--         (53, 'PoE', '1', 1),
+--         (53, 'C', '11.1', 2),
+--         (53, null, '16.1', 3),
+--         (53, 'PoE', '1', 4),
+--         (54, 'PoE', '2', 1),
+--         (54, 'C', '11.2', 2),
+--         (54, null, '16.2', 3),
+--         (54, 'PoE', '2', 4),
+--         (55, 'PoE', '3', 1),
+--         (55, 'C', '11.3', 2),
+--         (55, 'PoE', '3', 4),
+--         (56, 'CE', '1', 1),
+--         (56, 'C', '14.1', 2),
+--         (56, null, '17.1', 3),
+--         (56, 'CE', '1', 4),
+--         (57, 'CE', '2', 1),
+--         (57, 'CE', '2', 4),
+--         (58, 'RE', '1', 1),
+--         (58, 'C', '15.1', 2),
+--         (58, null, '18.1', 3),
+--         (58, 'RE', '1', 4),
+--         (59, 'RE', '2', 1),
+--         (59, 'RE', '2', 4),
+--         (60, null, '19.1', 3),
+--         (61, null, '23.1', 3)
+-- END
+
+-- IF( NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM StrategicActionImpacts))
+-- BEGIN
+--     INSERT INTO StrategicActionImpacts
+--         (Impact)
+--     VALUES
+--         ('High'),
+--         ('Medium'),
+--         ('Low')
+
+-- END
+
+-- IF( NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM StrategicActionFeasibility))
+-- BEGIN
+--     INSERT INTO StrategicActionFeasibility
+--         (Feasibility)
+--     VALUES
+--         ('Easy'),
+--         ('Medium'),
+--         ('Difficult')
+
+-- END
+
+-- IF( NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM StrategicActionPriorities))
+-- BEGIN
+--     INSERT INTO StrategicActionPriorities
+--         (Priority)
+--     VALUES
+--         ('Very High'),
+--         ('High'),
+--         ('Medium'),
+--         ('Low'),
+--         ('Very Low')
+-- END
+
+-- TRUNCATE TABLE [dbo].[Configurations]
+
+-- INSERT INTO [dbo].[Configurations]
+--     ([Key], [Value])
+-- VALUES
+--     ('TenantId', 'f610c0b7-bd24-4b39-810b-3dc280afb590'),
+--     ('ApplicationVersion', '0.0.1'),
+--     ('MaxStrategicPlanAllowed', '2'),
+--     ('TechnicalAreaExcelColumn', 'A'),
+--     ('IndicatorExcelColumn', 'B'),
+--     ('ValidExcelExtensions', '.xls,.xlsx'),
+--     ('AuthTokenURL', 'https://login.microsoftonline.com/f610c0b7-bd24-4b39-810b-3dc280afb590/oauth2/token'),
+--     ('JEEClientId', '98c4c8fc-3833-45fb-89f3-fea84a14595b'),
+--     ('JEEClientSecret', 'TDU8Q~KXsNCqOdrCDY4Bzq2z6LP896wmOoB2qcQd'),
+--     ('JEEAuthTokenParameterName', 'access_token'),
+--     ('JEEScoreUrl', 'https://jeereports-uat.who.int/api/JeeReportsApi/NOK/JeeMissions/scores'),
+--     ('JEERecommendationUrl', 'https://jeereports-uat.who.int/api/JeeReportsApi/NOK/JeeMissions/recommendations'),
+--     ('SPARClientId', '9038bfe4-467a-460d-90b6-ed54898233cd'),
+--     ('SPARClientSecret', 'v4X8Q~VjgKMCDsKitBHzhgYSTwD9clxKZcdLCaWg'),
+--     ('SPARScope', 'api://9038bfe4-467a-460d-90b6-ed54898233cd'),
+--     ('SPARXAPIKey', '2CB22047-C860-4CE6-91EB-9B084359A909'),
+--     ('SPARSubmissionURL', 'Https://extranet.who.int/e-spar/api/GetSubmissionV2')
+
+
+-- IF NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM [dbo].[Currencies])
+-- BEGIN
+--     INSERT INTO [dbo].[Currencies]
+--         ([Code], [Sign], [IsDefault], [ConversionFactor], [Description], [CreatedAt], [CreatedBy], [LastUpdatedAt], [LastUpdatedBy])
+--     VALUES
+--         ('USD', '$', 1, 1, 'United States Dollar', GETUTCDATE(), 1, GETUTCDATE(), 1)
+-- END
+
+-- -- Add permissions if not exist.
+-- IF NOT EXISTS (SELECT TOP 1
+--     1
+-- FROM [dbo].[Permissions])
+-- BEGIN
+--     INSERT INTO [dbo].[Permissions]
+--         ([Activity], [MinimalRoleId])
+--     VALUES
+--         ('InviteUser', 5),
+--         ('ApproveUserAccount', 6),
+--         ('UpdateUserAccount', 6),
+--         ('CreatePlan', 3),
+--         ('ViewPlan', 2),
+--         ('UpdatePlan', 3),
+--         ('DownloadPlan', 3),
+--         ('UploadPlan', 3),
+--         ('DeletePlan', 3),
+--         ('ActivatePlan', 3),
+--         ('UpdatePlanVisibility', 5),
+--         ('AddOrEditAction', 5),
+--         ('ApproveNewAction', 5),
+--         ('UpdateStrategicAction', 5),
+--         ('UpdateImplementationStatusOfStrategicAction', 3),
+--         ('UpdateActionDetails', 4),
+--         ('CompleteOrReviewPlan', 5),
+--         ('CancelPlan', 5),
+--         ('ClonePlan', 3),
+--         ('SummaryDashboards', 1),
+--         ('ViewOwnCountryActivePlanReport', 3)
+-- ENDd

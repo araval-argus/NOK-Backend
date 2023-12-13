@@ -23,7 +23,7 @@ namespace WHO.NOK.Infrastructure.Models.Countries
         /// <summary>
         /// Gets or sets country name.
         /// </summary>
-        public string Name { get; protected set; } = default!;
+        public string Name { get; protected set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets ISO code of country.
@@ -51,18 +51,13 @@ namespace WHO.NOK.Infrastructure.Models.Countries
         public string? Region { get; protected set; }
 
         /// <summary>
-        /// Gets or sets the Currency id.
-        /// </summary>
-        public int? CurrencyId { get; protected set; }
-
-        /// <summary>
         /// Gets or sets list of <see cref="User"/> belonging to the country.
         /// </summary>
         public virtual ICollection<User>? Users { get; protected set; }
 
-        /// <summary>
-        /// Gets or sets the <see cref="Currency"/> associated with the country.
-        /// </summary>
-        public virtual Currency? Currency { get; protected set; }
+        // /// <summary>
+        // /// Gets or sets the <see cref="Currency"/> associated with the country.
+        // /// </summary>
+        // public virtual Currency? Currency { get; protected set; }
     }
 }

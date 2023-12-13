@@ -8,7 +8,7 @@ namespace WHO.NOK.Infrastructure.Models.Users
 {
     using System.ComponentModel.DataAnnotations;
     using Common = WHO.NOK.Core.Common;
-
+    using WHO.NOK.Infrastructure.Models.Users;
     /// <summary>
     /// UserRole database model.
     /// </summary>
