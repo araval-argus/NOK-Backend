@@ -229,7 +229,7 @@
         <value>Invalid Value</value>
     </data>
     <data name="UserIdValidation" xml:space="preserve">
-        <value>User Id cannot be null or zero.</value>
+        <value>User Id cant be null or zero.</value>
     </data>
     <data name="InvalidIndicatorId" xml:space="preserve">
         <value>IndicatorId is invalid.</value>
@@ -279,6 +279,9 @@
     <data name="InvalidFeasibility" xml:space="preserve">
         <value>Invalid Feasibility.</value>
     </data>
+    <data name="AccessReasonValidation" xml:space="preserve">
+        <value>Access Reason should not be empty and minimum 5 characters long.</value>
+    </data>
     <data name="InvalidImpact" xml:space="preserve">
         <value>Invalid Impact.</value>
     </data>
@@ -305,6 +308,9 @@
     </data>
     <data name="InvalidTechnicalAreaId" xml:space="preserve">
         <value>Invalid technical area id.</value>
+    </data>
+    <data name="JobNotSelected" xml:space="preserve">
+        <value>Job Title should not be empty and can have maximum length upto 50 characters.</value>
     </data>
     <data name="NotValidDateDiffOperationalPlan" xml:space="preserve">
         <value>Difference between date should be between 1 and 2 years.</value>
