@@ -106,34 +106,19 @@ namespace WHO.NOK.Core.Common
         SystemAdmin = 1,
 
         /// <summary>
-        /// Represents Regional admin.
+        /// Represents Reviewer.
         /// </summary>
-        RegionalAdmin = 2,
+        Reviewer = 2,
 
         /// <summary>
-        /// Represents Country Admin.
+        /// Represents Contributor.
         /// </summary>
-        CountryAdmin = 3,
-
-        /// <summary>
-        /// Represents Country User.
-        /// </summary>
-        CountryUser = 4,
-
-        /// <summary>
-        /// Represents Secretariat.
-        /// </summary>
-        Secretariat = 5,
+        Contributor = 3,
 
         /// <summary>
         /// Represents Global viewer.
         /// </summary>
-        GlobalViewer = 6,
-
-        /// <summary>
-        /// Represents Country viewer.
-        /// </summary>
-        CountryViewer = 7,
+        GlobalViewer = 4,
     }
 
     /// <summary>

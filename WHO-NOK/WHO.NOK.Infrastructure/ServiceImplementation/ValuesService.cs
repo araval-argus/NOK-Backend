@@ -39,7 +39,7 @@ namespace WHO.NOK.Infrastructure.ServiceImplementation
         /// <inheritdoc />
         public async Task<List<CountryViewModel>> GetAllCountriesAsync()
         {
-            List<Models.Countries.Country> countries = await this.context.Countries.Include(x => x.Currency).AsNoTracking().OrderBy(x => x.Name).ToListAsync();
+            List<Models.Countries.Country> countries = await this.context.Countries.ToListAsync();
             return this.mapper.Map<List<CountryViewModel>>(countries);
         }
 

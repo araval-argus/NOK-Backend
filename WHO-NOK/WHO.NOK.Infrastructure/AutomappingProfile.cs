@@ -37,6 +37,11 @@ namespace WHO.NOK.Infrastructure
                 .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.UserRole.RoleId))
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
+            this.CreateMap<User, CurrentUserViewModel>()
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.UserRole.RoleId))
+                .ForMember(dest => dest.Country, opt => opt.MapFrom(src => src.CountryId))
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
             this.CreateMap<Country, CountryViewModel>()
                     .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 

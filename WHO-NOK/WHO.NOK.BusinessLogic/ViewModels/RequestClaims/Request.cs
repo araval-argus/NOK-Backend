@@ -6,16 +6,15 @@
 
 namespace WHO.NOK.BusinessLogic.ViewModels.RequestClaims
 {
-    using WHO.NOK.BusinessLogic.ViewModels.UserClaims;
-
+    using WHO.NOK.BusinessLogic.ViewModels.User;
     /// <summary>
     /// Request model to save the user claims data.
     /// </summary>
     public class Request
     {
         /// <summary>
-        /// Gets or sets <see cref="UserClaimsViewModel"/> model.
+        /// Gets or sets <see cref="UserViewModel"/> model.
         /// </summary>
-        public UserClaimsViewModel? User { get; set; } = null;
+        public CurrentUserViewModel? User { get; set; } = null;
     }
 }

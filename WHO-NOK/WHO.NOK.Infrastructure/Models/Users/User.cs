@@ -32,7 +32,9 @@ namespace WHO.NOK.Infrastructure.Models.Users
         /// <param name="region">Region.</param>
         /// <param name="languageId">Language Id.</param>
         /// <param name="institution">Institution.</param>
-        /// <param name="affiliation">Affiliation.</param>
+        /// <param name="affiliationId">AffiliationId.</param>
+        /// <param name="accessReason">AccessReason.</param>
+        /// <param name="jobTitle">JobTitle.</param>
         /// <param name="profileStatus">ProfileStatus.</param>
         /// <param name="isReadOnly">IsReadOnly.</param>
         public User(
@@ -42,39 +44,38 @@ namespace WHO.NOK.Infrastructure.Models.Users
             string email,
             string? profilePicture,
             int? countryId = null,
-            string? region = null,
             Languages languageId = Languages.English,
             string? institution = null,
-            string? affiliation = null,
+            int? affiliationId = null,
+            string accessReason = null,
+            string? jobTitle = null,
             ProfileStatus? profileStatus = null,
+            bool isActive = false,
             bool isReadOnly = true)
         {
+            this.IsActive = isActive;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Email = email;
             this.ProfilePicture = profilePicture;
-            if (roleId == Roles.SystemAdmin || roleId == Roles.GlobalViewer)
+            if (roleId == Roles.SystemAdmin)
             {
                 this.CountryId = null;
-                this.Region = null;
-            }
-            else if (roleId == Roles.RegionalAdmin)
-            {
-                this.CountryId = null;
-                this.Region = region;
             }
             else
             {
                 this.CountryId = countryId;
-                this.Region = null;
             }
 
             this.PreferredLanguageId = languageId;
             this.Institution = institution;
-            this.Affiliation = affiliation;
+            this.AffiliationId = affiliationId;
+            this.AccessReason = accessReason;
+            this.JobTitle = jobTitle;
             this.Status = profileStatus;
             this.UserRole = new UserRole(roleId);
             this.IsReadOnly = isReadOnly;
+
         }
 
         /// <summary>
@@ -111,12 +112,17 @@ namespace WHO.NOK.Infrastructure.Models.Users
         /// <summary>
         /// Gets or sets the Region.
         /// </summary>
-        public string? Region { get; protected set; }
+        /// public string? Region { get; protected set; }
 
         /// <summary>
         /// Gets or sets <see cref="Languages"/> enum.
         /// </summary>
         public Languages PreferredLanguageId { get; protected set; }
+
+        /// <summary>
+        /// Gets or sets Jobstitle.
+        /// </summary>
+        public string? JobTitle { get; protected set; }
 
         /// <summary>
         /// Gets or sets institution name.
@@ -126,7 +132,12 @@ namespace WHO.NOK.Infrastructure.Models.Users
         /// <summary>
         /// Gets or sets affiliation name.
         /// </summary>
-        public string? Affiliation { get; protected set; }
+        public int? AffiliationId { get; protected set; }
+
+        /// <summary>
+        /// Gets or sets Access Reason.
+        /// </summary>
+        public string? AccessReason { get; protected set; }
 
         /// <inheritdoc/>
         public DateTime CreatedAt { get; set; }
@@ -188,13 +199,13 @@ namespace WHO.NOK.Infrastructure.Models.Users
             string lastName,
             Languages languageId = Languages.English,
             string? institution = null,
-            string? affiliation = null)
+            int? affiliation = null)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.PreferredLanguageId = languageId;
             this.Institution = institution;
-            this.Affiliation = affiliation;
+            this.AffiliationId = affiliation;
         }
 
         /// <summary>

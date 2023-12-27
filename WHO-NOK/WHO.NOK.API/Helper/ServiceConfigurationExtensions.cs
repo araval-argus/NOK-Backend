@@ -63,33 +63,33 @@ namespace WHO.NOK.API.Helper
             string jsonAppSettings = customConfiguration["AppSettings"];
             CommonSettings.ApplicationSettings = ApplicationSettings.FromJson(jsonAppSettings);
 
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-                    {
-                        options.RequireHttpsMetadata = false;
-                        string tenant = CommonSettings.ApplicationSettings!.TenantId;
-                        string stsDiscoveryEndpoint = $"https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration";
+            // services.AddAuthentication(options =>
+            // {
+            //     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            // }).AddJwtBearer(options =>
+            //         {
+            //             options.RequireHttpsMetadata = false;
+            //             string tenant = CommonSettings.ApplicationSettings!.TenantId;
+            //             string stsDiscoveryEndpoint = $"https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration";
 
-                        // Note: Uncomment following line to show complete trace for debugging. It should be commented in prod.
-                        // Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
-                        var configManager = new Microsoft.IdentityModel.Protocols.ConfigurationManager<OpenIdConnectConfiguration>(
-                            stsDiscoveryEndpoint,
-                            new OpenIdConnectConfigurationRetriever());
-                        OpenIdConnectConfiguration config = configManager.GetConfigurationAsync().GetAwaiter().GetResult();
-                        options.TokenValidationParameters = new TokenValidationParameters
-                        {
-                            ValidAudience = string.Empty,
-                            ValidateAudience = false,
-                            ValidateIssuer = false,
-                            ValidateLifetime = true,
-                            ValidateIssuerSigningKey = false,
-                            IssuerSigningKeys = config.SigningKeys,
-                        };
-                    });
+            //             // Note: Uncomment following line to show complete trace for debugging. It should be commented in prod.
+            //             // Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
+            //             var configManager = new Microsoft.IdentityModel.Protocols.ConfigurationManager<OpenIdConnectConfiguration>(
+            //                 stsDiscoveryEndpoint,
+            //                 new OpenIdConnectConfigurationRetriever());
+            //             OpenIdConnectConfiguration config = configManager.GetConfigurationAsync().GetAwaiter().GetResult();
+            //             options.TokenValidationParameters = new TokenValidationParameters
+            //             {
+            //                 ValidAudience = string.Empty,
+            //                 ValidateAudience = false,
+            //                 ValidateIssuer = false,
+            //                 ValidateLifetime = true,
+            //                 ValidateIssuerSigningKey = false,
+            //                 IssuerSigningKeys = config.SigningKeys,
+            //             };
+            //         });
 
             // Add the scope service for user claims
             services.AddSingleton<ICurrentUserService, CurrentUserService>();

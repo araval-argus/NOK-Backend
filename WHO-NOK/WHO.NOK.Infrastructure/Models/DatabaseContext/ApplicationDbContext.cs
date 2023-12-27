@@ -62,145 +62,145 @@ namespace WHO.NOK.Infrastructure.Models.DatabaseContext
         /// </summary>
         public DbSet<Country> Countries { get; set; }
 
-        /// <summary>
-        /// Gets or sets Currencies.
-        /// </summary>
-        public DbSet<Currency> Currencies { get; set; }
+        // /// <summary>
+        // /// Gets or sets Currencies.
+        // /// </summary>
+        // public DbSet<Currency> Currencies { get; set; }
 
         /// <summary>
         /// Gets or sets Languages.
         /// </summary>
         public DbSet<Language> Languages { get; set; }
 
-        /// <summary>
-        /// Gets or sets country plan.
-        /// </summary>
-        public DbSet<CountryPlan> CountryPlans { get; set; }
+        // /// <summary>
+        // /// Gets or sets country plan.
+        // /// </summary>
+        // public DbSet<CountryPlan> CountryPlans { get; set; }
 
-        /// <summary>
-        /// Gets or sets sources.
-        /// </summary>
-        public DbSet<Source> Sources { get; set; }
+        // /// <summary>
+        // /// Gets or sets sources.
+        // /// </summary>
+        // public DbSet<Source> Sources { get; set; }
 
-        /// <summary>
-        /// Gets or sets technical area.
-        /// </summary>
-        public DbSet<TechnicalArea> TechnicalAreas { get; set; }
+        // /// <summary>
+        // /// Gets or sets technical area.
+        // /// </summary>
+        // public DbSet<TechnicalArea> TechnicalAreas { get; set; }
 
-        /// <summary>
-        /// Gets or sets technical area indicators.
-        /// </summary>
-        public DbSet<TechnicalAreaIndicator> TechnicalAreaIndicators { get; set; }
+        // /// <summary>
+        // /// Gets or sets technical area indicators.
+        // /// </summary>
+        // public DbSet<TechnicalAreaIndicator> TechnicalAreaIndicators { get; set; }
 
-        /// <summary>
-        /// Gets or sets plan indicators.
-        /// </summary>
-        public DbSet<CountryPlanIndicator> CountryPlanIndicators { get; set; }
+        // /// <summary>
+        // /// Gets or sets plan indicators.
+        // /// </summary>
+        // public DbSet<CountryPlanIndicator> CountryPlanIndicators { get; set; }
 
-        /// <summary>
-        /// Gets or sets excel mapping.
-        /// </summary>
-        public DbSet<ExcelMapping> ExcelMappings { get; set; }
+        // /// <summary>
+        // /// Gets or sets excel mapping.
+        // /// </summary>
+        // public DbSet<ExcelMapping> ExcelMappings { get; set; }
 
-        /// <summary>
-        /// Gets or sets common technical areas.
-        /// </summary>
-        public DbSet<CommonTechnicalArea> CommonTechnicalAreas { get; set; }
+        // /// <summary>
+        // /// Gets or sets common technical areas.
+        // /// </summary>
+        // public DbSet<CommonTechnicalArea> CommonTechnicalAreas { get; set; }
 
-        /// <summary>
-        /// Gets or sets SQL Error logs.
-        /// </summary>
-        public DbSet<SQLErrorLog> SQLErrorLogs { get; set; }
+        // /// <summary>
+        // /// Gets or sets SQL Error logs.
+        // /// </summary>
+        // public DbSet<SQLErrorLog> SQLErrorLogs { get; set; }
 
-        /// <summary>
-        /// Gets or sets plan types.
-        /// </summary>
-        public DbSet<PlanType> PlanTypes { get; set; }
+        // /// <summary>
+        // /// Gets or sets plan types.
+        // /// </summary>
+        // public DbSet<PlanType> PlanTypes { get; set; }
 
-        /// <summary>
-        /// Gets or sets Plan status.
-        /// </summary>
-        public DbSet<PlanStatus> PlanStatuses { get; set; }
+        // /// <summary>
+        // /// Gets or sets Plan status.
+        // /// </summary>
+        // public DbSet<PlanStatus> PlanStatuses { get; set; }
 
-        /// <summary>
-        /// Gets or sets Plan stage.
-        /// </summary>
-        public DbSet<PlanStage> PlanStages { get; set; }
+        // /// <summary>
+        // /// Gets or sets Plan stage.
+        // /// </summary>
+        // public DbSet<PlanStage> PlanStages { get; set; }
 
-        /// <summary>
-        /// Gets or sets assessment type.
-        /// </summary>
-        public DbSet<AssessmentType> AssessmentTypes { get; set; }
+        // /// <summary>
+        // /// Gets or sets assessment type.
+        // /// </summary>
+        // public DbSet<AssessmentType> AssessmentTypes { get; set; }
 
-        /// <summary>
-        /// Gets or sets planning tools.
-        /// </summary>
-        public DbSet<PlanningTools> PlanningTools { get; set; }
+        // /// <summary>
+        // /// Gets or sets planning tools.
+        // /// </summary>
+        // public DbSet<PlanningTools> PlanningTools { get; set; }
 
-        /// <summary>
-        /// Gets or sets IHR recommendations.
-        /// </summary>
-        public DbSet<IHRRecommendations> IHRRecommendations { get; set; }
+        // /// <summary>
+        // /// Gets or sets IHR recommendations.
+        // /// </summary>
+        // public DbSet<IHRRecommendations> IHRRecommendations { get; set; }
 
-        /// <summary>
-        /// Gets or sets NBW recommendations.
-        /// </summary>
-        public DbSet<NBWRecommendations> NBWRecommendations { get; set; }
+        // /// <summary>
+        // /// Gets or sets NBW recommendations.
+        // /// </summary>
+        // public DbSet<NBWRecommendations> NBWRecommendations { get; set; }
 
-        /// <summary>
-        /// Gets or sets strategic action priorities.
-        /// </summary>
-        public DbSet<StrategicActionPriority> StrategicActionPriorities { get; set; }
+        // /// <summary>
+        // /// Gets or sets strategic action priorities.
+        // /// </summary>
+        // public DbSet<StrategicActionPriority> StrategicActionPriorities { get; set; }
 
-        /// <summary>
-        /// Gets or sets strategic action impact.
-        /// </summary>
-        public DbSet<StrategicActionImpact> StrategicActionImpacts { get; set; }
+        // /// <summary>
+        // /// Gets or sets strategic action impact.
+        // /// </summary>
+        // public DbSet<StrategicActionImpact> StrategicActionImpacts { get; set; }
 
-        /// <summary>
-        /// Gets or sets strategic action Feasibility.
-        /// </summary>
-        public DbSet<StrategicActionFeasibility> StrategicActionFeasibility { get; set; }
+        // /// <summary>
+        // /// Gets or sets strategic action Feasibility.
+        // /// </summary>
+        // public DbSet<StrategicActionFeasibility> StrategicActionFeasibility { get; set; }
 
-        /// <summary>
-        /// Gets or sets strategic actions for strategic plan.
-        /// </summary>
-        public DbSet<StrategicAction> StrategicActions { get; set; }
+        // /// <summary>
+        // /// Gets or sets strategic actions for strategic plan.
+        // /// </summary>
+        // public DbSet<StrategicAction> StrategicActions { get; set; }
 
-        /// <summary>
-        /// Gets or sets collaborating institutions.
-        /// </summary>
-        public DbSet<CollaboratingInstitution> CollaboratingInstitutions { get; set; }
+        // /// <summary>
+        // /// Gets or sets collaborating institutions.
+        // /// </summary>
+        // public DbSet<CollaboratingInstitution> CollaboratingInstitutions { get; set; }
 
-        /// <summary>
-        /// Gets or sets detailed activity type.
-        /// </summary>
-        public DbSet<DetailedActivityType> DetailedActivityTypes { get; set; }
+        // /// <summary>
+        // /// Gets or sets detailed activity type.
+        // /// </summary>
+        // public DbSet<DetailedActivityType> DetailedActivityTypes { get; set; }
 
-        /// <summary>
-        /// Gets or sets detailed activities.
-        /// </summary>
-        public DbSet<DetailedActivity> DetailedActivities { get; set; }
+        // /// <summary>
+        // /// Gets or sets detailed activities.
+        // /// </summary>
+        // public DbSet<DetailedActivity> DetailedActivities { get; set; }
 
         /// <summary>
         /// Gets or sets application settings configurations.
         /// </summary>
         public DbSet<Configuration> Configurations { get; set; }
 
-        /// <summary>
-        /// Gets or sets Common Indicator mappings.
-        /// </summary>
-        public DbSet<CommonIndicatorsMapping> CommonIndicatorsMapping { get; set; }
+        // /// <summary>
+        // /// Gets or sets Common Indicator mappings.
+        // /// </summary>
+        // public DbSet<CommonIndicatorsMapping> CommonIndicatorsMapping { get; set; }
 
-        /// <summary>
-        /// Gets or sets country plan reviews.
-        /// </summary>
-        public DbSet<CountryPlanReview> CountryPlanReviews { get; set; }
+        // /// <summary>
+        // /// Gets or sets country plan reviews.
+        // /// </summary>
+        // public DbSet<CountryPlanReview> CountryPlanReviews { get; set; }
 
-        /// <summary>
-        /// Gets or sets permission.
-        /// </summary>
-        public DbSet<Permission> Permissions { get; set; }
+        // /// <summary>
+        // /// Gets or sets permission.
+        // /// </summary>
+        // public DbSet<Permission> Permissions { get; set; }
 
         /// <inheritdoc/>
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -249,179 +249,176 @@ namespace WHO.NOK.Infrastructure.Models.DatabaseContext
                 entity.Property(e => e.Name).HasMaxLength(200);
             });
 
-            modelBuilder.Entity<TechnicalArea>(entity =>
-            {
-                entity.HasOne(d => d.Source)
-                    .WithMany(p => p.TechnicalAreas)
-                    .HasForeignKey(d => d.SourceId)
-                    .HasConstraintName("FK_Source_TechnicalArea");
-            });
+        //     modelBuilder.Entity<TechnicalArea>(entity =>
+        //     {
+        //         entity.HasOne(d => d.Source)
+        //             .WithMany(p => p.TechnicalAreas)
+        //             .HasForeignKey(d => d.SourceId)
+        //             .HasConstraintName("FK_Source_TechnicalArea");
+        //     });
 
-            modelBuilder.Entity<TechnicalAreaIndicator>(entity =>
-            {
-                entity.Property(e => e.IndicatorCode).HasMaxLength(10);
+        //     modelBuilder.Entity<TechnicalAreaIndicator>(entity =>
+        //     {
+        //         entity.Property(e => e.IndicatorCode).HasMaxLength(10);
 
-                entity.HasOne(d => d.TechnicalArea)
-                    .WithMany(p => p.TechnicalAreaIndicator)
-                    .HasForeignKey(d => d.TechnicalAreaId)
-                    .HasConstraintName("FK_TechnicalArea_Indicator");
-            });
+        //         entity.HasOne(d => d.TechnicalArea)
+        //             .WithMany(p => p.TechnicalAreaIndicator)
+        //             .HasForeignKey(d => d.TechnicalAreaId)
+        //             .HasConstraintName("FK_TechnicalArea_Indicator");
+        //     });
 
-            modelBuilder.Entity<CountryPlan>(entity =>
-            {
-                entity.Property(e => e.CountryISOCode)
-                    .HasMaxLength(10)
-                    .HasColumnName("CountryISOCode");
+        //     modelBuilder.Entity<CountryPlan>(entity =>
+        //     {
+        //         entity.Property(e => e.CountryISOCode)
+        //             .HasMaxLength(10)
+        //             .HasColumnName("CountryISOCode");
 
-                entity.Property(e => e.PlanCode).HasMaxLength(50);
+        //         entity.Property(e => e.PlanCode).HasMaxLength(50);
 
-                entity.Property(e => e.SendReviewReminder)
-                    .IsRequired()
-                    .HasDefaultValueSql("((1))");
+        //         entity.Property(e => e.SendReviewReminder)
+        //             .IsRequired()
+        //             .HasDefaultValueSql("((1))");
 
-                entity.HasOne(d => d.AssessmentType)
-                    .WithMany(p => p.CountryPlans)
-                    .HasForeignKey(d => d.AssessmentTypeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CountryPlans_AssessmentTypes");
+        //         entity.HasOne(d => d.AssessmentType)
+        //             .WithMany(p => p.CountryPlans)
+        //             .HasForeignKey(d => d.AssessmentTypeId)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_CountryPlans_AssessmentTypes");
 
-                entity.HasOne(d => d.PlanStage)
-                    .WithMany(p => p.CountryPlans)
-                    .HasForeignKey(d => d.PlanStageId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CountryPlans_PlanStages");
+        //         entity.HasOne(d => d.PlanStage)
+        //             .WithMany(p => p.CountryPlans)
+        //             .HasForeignKey(d => d.PlanStageId)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_CountryPlans_PlanStages");
 
-                entity.HasOne(d => d.PlanStatus)
-                    .WithMany(p => p.CountryPlans)
-                    .HasForeignKey(d => d.PlanStatusId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CountryPlans_PlanStatus");
+        //         entity.HasOne(d => d.PlanStatus)
+        //             .WithMany(p => p.CountryPlans)
+        //             .HasForeignKey(d => d.PlanStatusId)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_CountryPlans_PlanStatus");
 
-                entity.HasOne(d => d.PlanType)
-                    .WithMany(p => p.CountryPlans)
-                    .HasForeignKey(d => d.PlanTypeId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CountryPlans_PlanTypes");
-            });
+        //         entity.HasOne(d => d.PlanType)
+        //             .WithMany(p => p.CountryPlans)
+        //             .HasForeignKey(d => d.PlanTypeId)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_CountryPlans_PlanTypes");
+        //     });
 
-            modelBuilder.Entity<CommonTechnicalArea>(entity =>
-             {
-                 entity.Property(e => e.DisplayName).HasMaxLength(1000);
-             });
+        //     modelBuilder.Entity<CommonTechnicalArea>(entity =>
+        //      {
+        //          entity.Property(e => e.DisplayName).HasMaxLength(1000);
+        //      });
 
-            modelBuilder.Entity<StrategicAction>(entity =>
-           {
-               entity.Property(e => e.ResponsibleAuthority).HasMaxLength(1000);
+        //     modelBuilder.Entity<StrategicAction>(entity =>
+        //    {
+        //        entity.Property(e => e.ResponsibleAuthority).HasMaxLength(1000);
 
-               entity.HasOne(d => d.StrategicActionFeasibility)
-                   .WithMany(p => p.StrategicActions)
-                   .HasForeignKey(d => d.Feasibility)
-                   .OnDelete(DeleteBehavior.ClientSetNull)
-                   .HasConstraintName("FK_StrategicActions_StrategicPlanFeasibility");
+        //        entity.HasOne(d => d.StrategicActionFeasibility)
+        //            .WithMany(p => p.StrategicActions)
+        //            .HasForeignKey(d => d.Feasibility)
+        //            .OnDelete(DeleteBehavior.ClientSetNull)
+        //            .HasConstraintName("FK_StrategicActions_StrategicPlanFeasibility");
 
-               entity.HasOne(d => d.StrategicActionImpact)
-                   .WithMany(p => p.StrategicActions)
-                   .HasForeignKey(d => d.Impact)
-                   .OnDelete(DeleteBehavior.ClientSetNull)
-                   .HasConstraintName("FK_StrategicActions_StrategicPlanImpacts");
+        //        entity.HasOne(d => d.StrategicActionImpact)
+        //            .WithMany(p => p.StrategicActions)
+        //            .HasForeignKey(d => d.Impact)
+        //            .OnDelete(DeleteBehavior.ClientSetNull)
+        //            .HasConstraintName("FK_StrategicActions_StrategicPlanImpacts");
 
-               entity.HasOne(d => d.CountryPlanIndicator)
-                   .WithMany(p => p.StrategicActions)
-                   .HasForeignKey(d => d.PlanIndicatorId)
-                   .OnDelete(DeleteBehavior.ClientSetNull)
-                   .HasConstraintName("FK_StrategicActions_CountryPlanIndicators");
+        //        entity.HasOne(d => d.CountryPlanIndicator)
+        //            .WithMany(p => p.StrategicActions)
+        //            .HasForeignKey(d => d.PlanIndicatorId)
+        //            .OnDelete(DeleteBehavior.ClientSetNull)
+        //            .HasConstraintName("FK_StrategicActions_CountryPlanIndicators");
 
-               entity.HasOne(d => d.StrategicActionPriority)
-                   .WithMany(p => p.StrategicActions)
-                   .HasForeignKey(d => d.Priority)
-                   .OnDelete(DeleteBehavior.ClientSetNull)
-                   .HasConstraintName("FK_StrategicActions_StrategicPlanPriorities");
-           });
+        //        entity.HasOne(d => d.StrategicActionPriority)
+        //            .WithMany(p => p.StrategicActions)
+        //            .HasForeignKey(d => d.Priority)
+        //            .OnDelete(DeleteBehavior.ClientSetNull)
+        //            .HasConstraintName("FK_StrategicActions_StrategicPlanPriorities");
+        //    });
 
-            modelBuilder.Entity<StrategicActionFeasibility>(entity =>
-            {
-                entity.Property(e => e.Feasibility).HasMaxLength(50);
-            });
+        //     modelBuilder.Entity<StrategicActionFeasibility>(entity =>
+        //     {
+        //         entity.Property(e => e.Feasibility).HasMaxLength(50);
+        //     });
 
-            modelBuilder.Entity<StrategicActionImpact>(entity =>
-            {
-                entity.Property(e => e.Impact).HasMaxLength(50);
-            });
+        //     modelBuilder.Entity<StrategicActionImpact>(entity =>
+        //     {
+        //         entity.Property(e => e.Impact).HasMaxLength(50);
+        //     });
 
-            modelBuilder.Entity<StrategicActionPriority>(entity =>
-            {
-                entity.Property(e => e.Priority).HasMaxLength(50);
-            });
+        //     modelBuilder.Entity<StrategicActionPriority>(entity =>
+        //     {
+        //         entity.Property(e => e.Priority).HasMaxLength(50);
+        //     });
 
-            modelBuilder.Entity<DetailedActivity>(entity =>
-            {
-                entity.Property(e => e.Comments).HasMaxLength(1000);
+        //     modelBuilder.Entity<DetailedActivity>(entity =>
+        //     {
+        //         entity.Property(e => e.Comments).HasMaxLength(1000);
 
-                entity.Property(e => e.Deadline).HasMaxLength(1000);
+        //         entity.Property(e => e.Deadline).HasMaxLength(1000);
 
-                entity.Property(e => e.Donor).HasMaxLength(1000);
+        //         entity.Property(e => e.Donor).HasMaxLength(1000);
 
-                entity.Property(e => e.EstimatedBudgetSource).HasMaxLength(1000);
+        //         entity.Property(e => e.EstimatedBudgetSource).HasMaxLength(1000);
 
-                entity.Property(e => e.Responsible).HasMaxLength(1000);
+        //         entity.Property(e => e.Responsible).HasMaxLength(1000);
 
-                entity.Property(e => e.RiskName).HasMaxLength(1000);
+        //         entity.Property(e => e.RiskName).HasMaxLength(1000);
 
-                entity.HasOne(d => d.StrategicActionFeasibility)
-                    .WithMany()
-                    .HasForeignKey(d => d.Feasibility)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_DetailedActivities_StrategicPlanFeasibility");
+        //         entity.HasOne(d => d.StrategicActionFeasibility)
+        //             .WithMany()
+        //             .HasForeignKey(d => d.Feasibility)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_DetailedActivities_StrategicPlanFeasibility");
 
-                entity.HasOne(d => d.StrategicActionImpact)
-                    .WithMany()
-                    .HasForeignKey(d => d.Impact)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_DetailedActivities_StrategicPlanImpacts");
+        //         entity.HasOne(d => d.StrategicActionImpact)
+        //             .WithMany()
+        //             .HasForeignKey(d => d.Impact)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_DetailedActivities_StrategicPlanImpacts");
 
-                entity.HasOne(d => d.CollaboratingInstitution)
-                    .WithMany()
-                    .HasForeignKey(d => d.InstituteId)
-                    .HasConstraintName("FK_DetailedActivities_CollaboratingInstitutions");
+        //         entity.HasOne(d => d.CollaboratingInstitution)
+        //             .WithMany()
+        //             .HasForeignKey(d => d.InstituteId)
+        //             .HasConstraintName("FK_DetailedActivities_CollaboratingInstitutions");
 
-                entity.HasOne(d => d.StrategicActionPriority)
-                    .WithMany()
-                    .HasForeignKey(d => d.Priority)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_DetailedActivities_StrategicPlanPriorities");
+        //         entity.HasOne(d => d.StrategicActionPriority)
+        //             .WithMany()
+        //             .HasForeignKey(d => d.Priority)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_DetailedActivities_StrategicPlanPriorities");
 
-                entity.HasOne(d => d.StrategicAction)
-                    .WithMany()
-                    .HasForeignKey(d => d.StrategicActionId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_DetailedActivities_StrategicActions");
-            });
+        //         entity.HasOne(d => d.StrategicAction)
+        //             .WithMany()
+        //             .HasForeignKey(d => d.StrategicActionId)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_DetailedActivities_StrategicActions");
+        //     });
 
-            modelBuilder.Entity<DetailedActivityType>(entity =>
-            {
-                entity.Property(e => e.Activity).HasMaxLength(1000);
-            });
+        //     modelBuilder.Entity<DetailedActivityType>(entity =>
+        //     {
+        //         entity.Property(e => e.Activity).HasMaxLength(1000);
+        //     });
 
-            modelBuilder.Entity<CollaboratingInstitution>(entity =>
-            {
-                entity.Property(e => e.Title).HasMaxLength(1000);
-            });
+        //     modelBuilder.Entity<CollaboratingInstitution>(entity =>
+        //     {
+        //         entity.Property(e => e.Title).HasMaxLength(1000);
+        //     });
 
-            modelBuilder.Entity<CountryPlanReview>(entity =>
-            {
-                entity.HasOne(d => d.CountryPlan)
-                    .WithMany(p => p.CountryPlanReviews)
-                    .HasForeignKey(d => d.CountryPlanId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_CountryPlanReviews_CountryPlans");
-            });
+        //     modelBuilder.Entity<CountryPlanReview>(entity =>
+        //     {
+        //         entity.HasOne(d => d.CountryPlan)
+        //             .WithMany(p => p.CountryPlanReviews)
+        //             .HasForeignKey(d => d.CountryPlanId)
+        //             .OnDelete(DeleteBehavior.ClientSetNull)
+        //             .HasConstraintName("FK_CountryPlanReviews_CountryPlans");
+        //     });
 
             modelBuilder.Entity<Country>(entity =>
             {
-                entity.HasOne(d => d.Currency)
-                    .WithMany(p => p.Countries)
-                    .HasForeignKey(d => d.CurrencyId)
-                    .HasConstraintName("FK_CurrencyId");
+                entity.HasKey(e => e.CountryId);
             });
         }
 
@@ -437,7 +434,7 @@ namespace WHO.NOK.Infrastructure.Models.DatabaseContext
             _ = int.TryParse(currentUsername, out int currentLoginId);
 
             // This is to prevent overriding the value with 0 when no login was present.
-            if (currentLoginId != 0)
+            if (currentLoginId == 0)
             {
                 var entries = this.ChangeTracker.Entries();
                 foreach (var entry in entries)

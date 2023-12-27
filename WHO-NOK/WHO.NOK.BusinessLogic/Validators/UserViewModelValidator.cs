@@ -25,7 +25,6 @@ namespace WHO.NOK.BusinessLogic.ViewModels.User
             this.RuleFor(x => x.LastName).NotEmpty().WithMessage(localizer["LastNameValidation"]);
             this.RuleFor(x => x.Email).NotEmpty().EmailAddress().WithMessage(localizer["EmailValidation"]);
             this.RuleFor(x => x.RoleId).NotNull().WithMessage(localizer["RoleValidation"]);
-            this.RuleFor(x => x.PreferredLanguageId).NotEmpty().WithMessage(localizer["LanguageNotSelected"]);
         }
     }
 }
