@@ -1,0 +1,72 @@
+<div class="app-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="user-profile">
+    <div class="user-body">
+      <div class="search-role-container">
+        <input type="text" placeholder="&#xF002; Search" class="search-input" />
+        <button class="role-button" (click)="toggleRoleDropdown()">Role</button>
+        <div class="role-dropdown" *ngIf="showRoleDropdown">
+          <ul>
+            <li (click)="selectRole('System Administrator')">System Administrator</li>
+            <li (click)="selectRole('Contributor')">Contributor</li>
+            <li (click)="selectRole('Reviewer')">Reviewer</li>
+            <li (click)="selectRole('User')">User</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button (click)="filterData('All')">All</button>
+        <button (click)="filterData('Active')">Active</button>
+        <button (click)="filterData('Inactive')">Inactive</button>
+        <button (click)="filterData('Rejected')">Rejected</button>
+        <button (click)="filterData('Pending')">Pending</button>
+        <button (click)="openAddUserComponent()">Add User</button>
+      </div>
+
+      <div class="view-buttons">
+        <button (click)="setViewMode('card')">Card View</button>
+        <button (click)="setViewMode('tabular')">Tabular View</button>
+      </div>
+      
+      <div *ngIf="viewMode === 'card'; else tabularView">
+        <div class="user-card" *ngFor="let user of users">
+          <!-- Card view template -->
+          <h3>{{ user.name }}</h3>
+          <p>Status: {{ user.status }}</p>
+          <p>Job Role: {{ user.jobRole }}</p>
+          <p>Country: {{ user.country }}</p>
+          <p>User Role: {{ user.userRole }}</p>
+          <button (click)="performAction(user)">Action</button>
+        </div>
+      </div>
+      
+      <ng-template #tabularView>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Job Role</th>
+              <th>Country</th>
+              <th>User Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <!-- Tabular view template -->
+              <td>{{ user.name }}</td>
+              <td>{{ user.status }}</td>
+              <td>{{ user.jobRole }}</td>
+              <td>{{ user.country }}</td>
+              <td>{{ user.userRole }}</td>
+              <td><button (click)="performAction(user)">Action</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </div>
+  </div>
+</div>

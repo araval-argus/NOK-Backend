@@ -1,0 +1,38 @@
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 20px;
+    background-color: #0080FE; /* Adjust the background color as needed */
+    color: #fff; /* Adjust the text color as needed */
+    border-color: black;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center; /* Align the logo and organization name vertically */
+  }
+  
+  .logo img {
+    height: 40px; /* Adjust the height of the logo as needed */
+    margin-right: 10px;
+  }
+  
+  .organization-name {
+    font-size: 1.5em; /* Adjust the font size of the organization name */
+  }
+  
+  .header-info {
+    display: flex;
+    align-items:flex-end;
+    gap: 14px;
+  }
+  
+  .user-name {
+    font-size: 1em; /* Adjust the font size of the user name */
+  }
+  
+  .notification-icon {
+    font-size: 1.2em; /* Adjust the font size of the notification icon */
+  }
+  

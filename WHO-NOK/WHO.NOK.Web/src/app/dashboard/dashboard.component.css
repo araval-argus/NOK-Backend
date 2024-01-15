@@ -1,0 +1,22 @@
+.app-container {
+  display: flex;
+}
+
+app-sidebar {
+  /* Add your styles for app-sidebar */
+  flex: 0 0 auto; /* This ensures the sidebar doesn't grow or shrink */
+}
+
+app-header {
+  /* Add your styles for app-header */
+  flex: 1; /* Allow the header to take the remaining space */
+  margin-right: 20px; /* Add margin to create space between the sidebar and header */
+}
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 20px; /* Add margin for content inside the header */
+}

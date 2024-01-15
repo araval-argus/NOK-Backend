@@ -1,0 +1,47 @@
+/* Apply styles to the main container */
+.app-container {
+  display: flex;
+}
+
+/* Apply styles to the sidebar */
+.sidebar {
+  height: 650px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Apply styles to the organization name */
+.organization-name {
+  font-size: 18px;
+  background-color: #0080FE;
+  
+  
+}
+.main{
+  background-color: #0F52BA;
+  height: 650px;
+
+
+}
+
+/* Apply styles to the sidebar pages */
+.sidebar-pages {
+  list-style-type: none;
+}
+
+
+.sidebar-pages a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.current-user{
+  padding-top: 250px;
+  padding-left: 40px;
+  color: #fff;
+
+
+}

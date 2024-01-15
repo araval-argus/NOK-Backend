@@ -1,0 +1,33 @@
+.nugget {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px;
+    width: 90%;
+   }
+   
+   .nugget h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+   }
+   
+   .nugget h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+   }
+   
+   .nugget p {
+    font-size: 14px;
+    margin-bottom: 5px;
+   }
+   
+   .nugget a {
+    color: #4285f4;
+    text-decoration: none;
+   }
+   
+   .nugget a:hover {
+    text-decoration: underline;
+   }
